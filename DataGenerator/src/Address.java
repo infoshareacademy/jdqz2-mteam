@@ -6,4 +6,12 @@ public class Address {
         this.country = country;
         this.stateProvince = stateProvince;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", stateProvince='" + stateProvince + '\'' +
+                '}';
+    }
 }

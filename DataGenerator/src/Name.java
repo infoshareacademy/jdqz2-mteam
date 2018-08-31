@@ -6,4 +6,14 @@ public class Name {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+
+
+    @Override
+    public String toString() {
+        return "Name{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
