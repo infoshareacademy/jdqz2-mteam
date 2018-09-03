@@ -1,3 +1,5 @@
+package UserData;
+
 public class Name {
     private String firstName;
     private String lastName;
@@ -7,11 +9,17 @@ public class Name {
         this.lastName = lastName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
 
     @Override
     public String toString() {
-        return "Name{" +
+        return "UserData.Name{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';

@@ -1,4 +1,4 @@
-import javax.jws.soap.SOAPBinding;
+package UserData;
 
 public class User {
     private Name name;
@@ -13,11 +13,25 @@ public class User {
         this.password = password;
     }
 
+    public Name getName() {
+        return name;
+    }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserData.User{" +
                 "name=" + name +
                 ", address=" + address +
                 ", email='" + email + '\'' +
