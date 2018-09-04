@@ -14,17 +14,17 @@ public class DataGeneratorApp {
 
 
         ReadJsonFile entry = new ReadJsonFile();
-        HashSet<Integer> bbb = entry.randomNumbers(howManyEntries);
+        HashSet<Integer> randomNumberHashList = entry.randomNumbers(howManyEntries);
 
-        Integer[] randomNumbers = new Integer[bbb.size()];
-        for (int i = 0; i < bbb.size(); i++) {
-            randomNumbers = bbb.toArray(new Integer[0]);
+        Integer[] randomNumbersArray = new Integer[randomNumberHashList.size()];
+        for (int i = 0; i < randomNumberHashList.size(); i++) {
+            randomNumbersArray = randomNumberHashList.toArray(new Integer[0]);
         }
 
 
-        User[] users = entry.userData(howManyEntries, randomNumbers);
+        User[] users = entry.userData(howManyEntries, randomNumbersArray);
         for (int i = 0; i < howManyEntries; i++) {
-            System.out.println(randomNumbers[i] + ". " + users[i]);
+            System.out.println(randomNumbersArray[i] + ". " + users[i]);
         }
 
 //        System.out.println(users[1].getName().getFirstName());
