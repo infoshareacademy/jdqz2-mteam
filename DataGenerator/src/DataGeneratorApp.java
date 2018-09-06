@@ -24,12 +24,12 @@ public class DataGeneratorApp {
             System.out.println(randomNumbersArray[i] + ". " + users[i]);
         }
 
-        System.out.println(users[1].getName().getFirstName());
-        System.out.println(users[1].getName().getLastName());
-        System.out.println(users[1].getAddress().getCountry());
-        System.out.println(users[1].getAddress().getStateProvince());
-        System.out.println(users[1].getEmail());
-        System.out.println(users[1].getPassword());
+//         System.out.println(users[1].getName().getFirstName());
+//         System.out.println(users[1].getName().getLastName());
+//         System.out.println(users[1].getAddress().getCountry());
+//         System.out.println(users[1].getAddress().getStateProvince());
+//         System.out.println(users[1].getEmail());
+//         System.out.println(users[1].getPassword());
 
     }
 }
