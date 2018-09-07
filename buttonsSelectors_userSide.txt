@@ -1,0 +1,57 @@
+============ Landing page ============
+===http://mteam.jdqz2.is-academy.pl/shop/
+"My account" i "Contact us" znika przy mniejszych ekranach (błędy responsywności)
+
+Contact us:    div > div.col-lg-9.col-md-8.col-sm-8 > button
+Search button:    span.input-group-btn > button
+
+==(musi być cos w koszyku)
+Delete item from Shopping cart:    #miniCartDetails > li:nth-child(1) > div.cart-del > button
+<Link> Checkout:    #miniCartDetails > li.checkout-bg > a
+
+
+============ Shopping cart - checkout ============
+==http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html
+
+<Link> Recalculate:    div > a:nth-child(1)
+<Link> Continue shopping:    div > a:nth-child(2)
+<Link> Proceed to checkout:    div.wc-proceed-to-checkout > a
+
+
+============ Billing informations ============
+==http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html
+
+(disabled) Submit order:    #submitOrder
+
+
+============ Register Account ============
+==http://mteam.jdqz2.is-academy.pl/shop/customer/registration.html
+
+Create account:    #registrationForm > button
+
+
+========== Contact us ==========
+Recaptcha nie działa, a co za tym idzie przycisk do wysyłania wiadomości jest wyłączony
+
+==http://mteam.jdqz2.is-academy.pl/shop/store/contactus.html
+
+Send message:    #submitContact
+Map full-screen:    #map_canvas > div > div > button
+Map zoom-in:    div:nth-child(1) > div > button:nth-child(1)
+Map zoom-out:    div:nth-child(1) > div > button:nth-child(3)
+
+
+========== My Account (sign in) ==========
+==http://mteam.jdqz2.is-academy.pl/shop/customer/customLogon.html
+
+<Button> Sign in:    #genericLogin-button
+<Link> Register:    div > div:nth-child(2) > a
+
+
+========== Log in -> Change password ==========
+==http://mteam.jdqz2.is-academy.pl/shop/customer/password.html
+
+Current pass:    #currentPassword
+New pass:    #password
+repeat pass:    #checkPassword
+<input> Change password:    #submitChangePassword

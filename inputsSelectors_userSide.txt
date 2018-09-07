@@ -1,3 +1,10 @@
+============ Shopping cart - checkout ============
+== http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html
+
+(coś musi być w koszyku)
+Quantity:    #53
+
+
 ============ Billing informations ============
 W kilku miejscach były inputy ustawione na hidden, czy je też miało sens spisywać?
 
@@ -6,81 +13,81 @@ W kilku miejscach były inputy ustawione na hidden, czy je też miało sens spis
 
 v1 - skopiowane bezposrednio przy użyciu devToola chrome (ppm -> copy -> selector)
 
-Search: #searchField
-<Button> search: span.input-group-btn > button
+Search:    #searchField
+<Button> search:    span.input-group-btn > button
 
-First name: #customer\2e firstName
-Last name: #customer\2e lastName
-Billing company: #customer\2e billing\2e company
-Street address: #customer\2e billing\2e address
-City: #customer\2e billing\2e city
-Country: #customer\2e billing\2e country
-State/province: #billingStateProvince
-Postal code: #billingPostalCode
-Email address: #customer\2e emailAddress
-Phone number: #customer\2e billing\2e phone
+First name:    #customer\2e firstName
+Last name:    #customer\2e lastName
+Billing company:    #customer\2e billing\2e company
+Street address:    #customer\2e billing\2e address
+City:    #customer\2e billing\2e city
+<select> Country:    #customer\2e billing\2e country
+State/province:    #billingStateProvince
+Postal code:    #billingPostalCode
+Email address:    #customer\2e emailAddress
+Phone number:    #customer\2e billing\2e phone
 
-Create account: #cbox
-Account pass: #customer\2e clearPassword
+Create account:    #cbox
+Account pass:    #customer\2e clearPassword
 
-Shipping option: #storePickUp_QC
-Agree with terms: #customerAgreed
+Shipping option:    #storePickUp_QC
+Agree with terms:    #customerAgreed
 
-<Button> submit order: #submitOrder
+<Button> submit order:    #submitOrder
 
 --Different addres option
 
-Diff addres checkbox: #shipToDeliveryAddress
+Diff addres checkbox:    #shipToDeliveryAddress
 
-Shipping first name: #customer\2e delivery\2e name
-Shipping last name: #customer\2e delivery\2e name       zduplikowane id!!!
-Shipping company: #customer\2e delivery\2e company
-Shipping street address: #customer\2e delivery\2e address
-Shipping city: #customer\2e delivery\2e city
-Shipping country: #customer\2e delivery\2e country
-Shipping state/province: #deliveryStateList
-Shipping postal code: #deliveryPostalCode
-Order notes: #comments
+Shipping first name:    #customer\2e delivery\2e name
+Shipping last name:    #customer\2e delivery\2e name       zduplikowane id!!!
+Shipping company:    #customer\2e delivery\2e company
+Shipping street address:    #customer\2e delivery\2e address
+Shipping city:    #customer\2e delivery\2e city
+<select> Shipping country:    #customer\2e delivery\2e country
+<select> Shipping state/province:    #deliveryStateList
+Shipping postal code:    #deliveryPostalCode
+Order notes:    #comments
 
 
 
 v2 - skopiowane bezpośrednio z elementu
 
-Search: #searchField
-<Button> search: span.input-group-btn > button
+Search:    #searchField
+<Button> search:    span.input-group-btn > button
 
-First name: #customer.firstName
-Last name: #customer.lastName
-Billing company: #customer.billing.company
-Street address: #customer.billing.address
-City: #customer.billing.city
-Country: #customer.billing.country
-State/province: #billingStateProvince
-Postal code: #billingPostalCode
-Email address: #customer.emailAddress
-Phone number: #customer.billing.phone
+First name:    #customer.firstName
+Last name:    #customer.lastName
+Billing company:    #customer.billing.company
+Street address:    #customer.billing.address
+City:    #customer.billing.city
+<select> Country:    #customer.billing.country
+State/province:    #billingStateProvince
+Postal code:    #billingPostalCode
+Email address:    #customer.emailAddress
+Phone number:    #customer.billing.phone
 
-Create account: #cbox
-Account pass: #customer.clearPassword
+Create account:    #cbox
+Account pass:    #customer.clearPassword
 
-Shipping option: #storePickUp_QC
-Agree with terms: #customerAgreed
+Shipping option:    #storePickUp_QC
+Agree with terms:    #customerAgreed
 
-<Button> submit order: #submitOrder
+<Button> submit order:    #submitOrder
 
 --Different addres option
 
-Diff addres checkbox: #shipToDeliveryAddress
+Diff addres checkbox:    #shipToDeliveryAddress
 
-Shipping first name: #customer.delivery.name
-Shipping last name: #customer.delivery.name       zduplikowane id!!!
-Shipping company: #customer.delivery.company
-Shipping street address: #customer.delivery.address
-Shipping city: #customer.delivery.city
-Shipping country: #customer.delivery.country
-Shipping state/province: #deliveryStateList
-Shipping postal code: #deliveryPostalCode
-Order notes: #comments
+Shipping first name:    #customer.delivery.name
+Shipping last name:    #customer.delivery.name       zduplikowane id!!!
+Shipping company:    #customer.delivery.company
+Shipping street address:    #customer.delivery.address
+Shipping city:    #customer.delivery.city
+<select> Shipping country:    #customer.delivery.country
+<select> Shipping state/province:    #deliveryStateList
+Shipping postal code:    #deliveryPostalCode
+Order notes:    #comments
 
 
 
@@ -91,18 +98,18 @@ Order notes: #comments
 
 v1 - skopiowane bezposrednio przy użyciu devToola chrome (ppm -> copy -> selector)
 
-Search: #searchField
-<Button> search: span.input-group-btn > button
+Search:    #searchField
+<Button> search:    span.input-group-btn > button
 
-First name: #firstName
-Last name: #lastName
-Country: #registration_country
-State/province: #hidden_zones
-Email address: #emailAddress
-Password: #password
-Repeat pass: #passwordAgain
+First name:    #firstName
+Last name:    #lastName
+<select> Country:    #registration_country
+State/province:    #hidden_zones
+Email address:    #emailAddress
+Password:    #password
+Repeat pass:    #passwordAgain
 
-<Button> create account: #registrationForm > button
+<Button> create account:    #registrationForm > button
 
 
 
@@ -113,46 +120,46 @@ Recaptcha nie działa, a co za tym idzie przycisk do wysyłania wiadomości jest
 
 ==http://mteam.jdqz2.is-academy.pl/shop/store/contactus.html
 
-Name: #name
-Email address: #email
-Subject: #subject
-Comments: #comment
+Name:    #name
+Email address:    #email
+Subject:    #subject
+Comments:    #comment
 
 reCatptcha nie działa ????
 
-<Button> Send message: #submitContact
+<Button> Send message:    #submitContact
 
 
 
 ========== My Account (sign in) ==========
 ==http://mteam.jdqz2.is-academy.pl/shop/customer/customLogon.html
 
-Email address: #signin_userName
-Password: #signin_password
+Email address:    #signin_userName
+Password:    #signin_password
 
-<Button> Sign in: #genericLogin-button
-<Button> Register: div > div:nth-child(2) > a
+<Button> Sign in:    #genericLogin-button
+<Link> Register:    div > div:nth-child(2) > a
 
 
 ========== Log in -> Billing$Shipping info -> Add a new address ==========
 ==http://mteam.jdqz2.is-academy.pl/shop/customer/editAddress.html
 
-First name: #firstName
-Last name: #lastName
-Company: #company
-Street address: #address
-City: #city
-Country: #customer_country
-State/province: #hidden_zones
-Postal code: #billingPostalCode
-Phone: #phone
-Change address button: #submitAddress
+First name:    #firstName
+Last name:    #lastName
+Company:    #company
+Street address:    #address
+City:    #city
+<select> Country:    #customer_country
+State/province:    #hidden_zones
+Postal code:    #billingPostalCode
+Phone:    #phone
+Change address button:    #submitAddress
 
 
 ========== Log in -> Change password ==========
 ==http://mteam.jdqz2.is-academy.pl/shop/customer/password.html
 
-Current pass: #currentPassword
-New pass: #password
-repeat pass: #checkPassword
-Change pass button: #submitChangePassword
+Current pass:    #currentPassword
+New pass:    #password
+repeat pass:    #checkPassword
+Change password button:    #submitChangePassword
