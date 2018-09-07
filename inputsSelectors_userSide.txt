@@ -1,0 +1,158 @@
+============ Billing informations ============
+W kilku miejscach były inputy ustawione na hidden, czy je też miało sens spisywać?
+
+===http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html
+
+
+v1 - skopiowane bezposrednio przy użyciu devToola chrome (ppm -> copy -> selector)
+
+Search: #searchField
+<Button> search: span.input-group-btn > button
+
+First name: #customer\2e firstName
+Last name: #customer\2e lastName
+Billing company: #customer\2e billing\2e company
+Street address: #customer\2e billing\2e address
+City: #customer\2e billing\2e city
+Country: #customer\2e billing\2e country
+State/province: #billingStateProvince
+Postal code: #billingPostalCode
+Email address: #customer\2e emailAddress
+Phone number: #customer\2e billing\2e phone
+
+Create account: #cbox
+Account pass: #customer\2e clearPassword
+
+Shipping option: #storePickUp_QC
+Agree with terms: #customerAgreed
+
+<Button> submit order: #submitOrder
+
+--Different addres option
+
+Diff addres checkbox: #shipToDeliveryAddress
+
+Shipping first name: #customer\2e delivery\2e name
+Shipping last name: #customer\2e delivery\2e name       zduplikowane id!!!
+Shipping company: #customer\2e delivery\2e company
+Shipping street address: #customer\2e delivery\2e address
+Shipping city: #customer\2e delivery\2e city
+Shipping country: #customer\2e delivery\2e country
+Shipping state/province: #deliveryStateList
+Shipping postal code: #deliveryPostalCode
+Order notes: #comments
+
+
+
+v2 - skopiowane bezpośrednio z elementu
+
+Search: #searchField
+<Button> search: span.input-group-btn > button
+
+First name: #customer.firstName
+Last name: #customer.lastName
+Billing company: #customer.billing.company
+Street address: #customer.billing.address
+City: #customer.billing.city
+Country: #customer.billing.country
+State/province: #billingStateProvince
+Postal code: #billingPostalCode
+Email address: #customer.emailAddress
+Phone number: #customer.billing.phone
+
+Create account: #cbox
+Account pass: #customer.clearPassword
+
+Shipping option: #storePickUp_QC
+Agree with terms: #customerAgreed
+
+<Button> submit order: #submitOrder
+
+--Different addres option
+
+Diff addres checkbox: #shipToDeliveryAddress
+
+Shipping first name: #customer.delivery.name
+Shipping last name: #customer.delivery.name       zduplikowane id!!!
+Shipping company: #customer.delivery.company
+Shipping street address: #customer.delivery.address
+Shipping city: #customer.delivery.city
+Shipping country: #customer.delivery.country
+Shipping state/province: #deliveryStateList
+Shipping postal code: #deliveryPostalCode
+Order notes: #comments
+
+
+
+
+
+============ Register Account ============
+==http://mteam.jdqz2.is-academy.pl/shop/customer/registration.html
+
+v1 - skopiowane bezposrednio przy użyciu devToola chrome (ppm -> copy -> selector)
+
+Search: #searchField
+<Button> search: span.input-group-btn > button
+
+First name: #firstName
+Last name: #lastName
+Country: #registration_country
+State/province: #hidden_zones
+Email address: #emailAddress
+Password: #password
+Repeat pass: #passwordAgain
+
+<Button> create account: #registrationForm > button
+
+
+
+
+
+========== Contact us ==========
+Recaptcha nie działa, a co za tym idzie przycisk do wysyłania wiadomości jest wyłączony
+
+==http://mteam.jdqz2.is-academy.pl/shop/store/contactus.html
+
+Name: #name
+Email address: #email
+Subject: #subject
+Comments: #comment
+
+reCatptcha nie działa ????
+
+<Button> Send message: #submitContact
+
+
+
+========== My Account (sign in) ==========
+==http://mteam.jdqz2.is-academy.pl/shop/customer/customLogon.html
+
+Email address: #signin_userName
+Password: #signin_password
+
+<Button> Sign in: #genericLogin-button
+<Button> Register: div > div:nth-child(2) > a
+
+
+========== Log in -> Billing$Shipping info -> Add a new address ==========
+==http://mteam.jdqz2.is-academy.pl/shop/customer/editAddress.html
+
+First name: #firstName
+Last name: #lastName
+Company: #company
+Street address: #address
+City: #city
+Country: #customer_country
+State/province: #hidden_zones
+Postal code: #billingPostalCode
+Phone: #phone
+Change address button: #submitAddress
+
+
+========== Log in -> Change password ==========
+==http://mteam.jdqz2.is-academy.pl/shop/customer/password.html
+
+Current pass: #currentPassword
+New pass: #password
+repeat pass: #checkPassword
+Change pass button: #submitChangePassword
