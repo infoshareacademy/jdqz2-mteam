@@ -1,6 +1,6 @@
 
-import ReadFile.ReadFileClassBillingInfo;
-import UserData.User;
+import readFile.ReadFileClassBillingInfo;
+import userData.User;
 
 
 import java.util.*;

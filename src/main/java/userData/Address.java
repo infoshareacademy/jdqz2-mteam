@@ -1,4 +1,4 @@
-package UserData;
+package userData;
 
 public class Address {
   private String street;

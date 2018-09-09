@@ -1,4 +1,4 @@
-package UserData;
+package userData;
 
 public class User {
     private Name name;
