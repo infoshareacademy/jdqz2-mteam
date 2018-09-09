@@ -1,8 +1,8 @@
-package ReadFile;
+package readFile;
 
-import UserData.Address;
-import UserData.Name;
-import UserData.User;
+import userData.Address;
+import userData.Name;
+import userData.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

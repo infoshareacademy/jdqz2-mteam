@@ -1,4 +1,4 @@
-package UserData;
+package userData;
 
 public class Name {
     private String firstName;
@@ -19,7 +19,7 @@ public class Name {
 
     @Override
     public String toString() {
-        return "UserData.Name{" +
+        return "userData.Name{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';

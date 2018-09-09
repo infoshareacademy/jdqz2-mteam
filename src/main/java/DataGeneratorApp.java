@@ -1,5 +1,5 @@
-import ReadFile.ReadFileClassDataGen;
-import UserData.User;
+import readFile.ReadFileClassDataGen;
+import userData.User;
 import java.util.HashSet;
 import java.util.Scanner;
 
