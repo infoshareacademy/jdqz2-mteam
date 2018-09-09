@@ -1,4 +1,4 @@
-import ReadFile.ReadFileClass;
+import ReadFile.ReadFileClassDataGen;
 import UserData.User;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ public class DataGeneratorApp {
         int howManyEntries = howManyEntriesScanner.nextInt();
 //        int howManyEntries = 100;
 
-        ReadFileClass entry = new ReadFileClass();
+        ReadFileClassDataGen entry = new ReadFileClassDataGen();
         HashSet<Integer> randomNumberHashList = entry.randomNumbers(howManyEntries);
 
         Integer[] randomNumbersArray = new Integer[randomNumberHashList.size()];
@@ -20,6 +20,7 @@ public class DataGeneratorApp {
         }
 
         User[] users = entry.userData(howManyEntries, randomNumbersArray);
+
         for (int i = 0; i < howManyEntries; i++) {
             System.out.println(randomNumbersArray[i] + ". " + users[i]);
         }

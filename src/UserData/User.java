@@ -5,12 +5,22 @@ public class User {
     private Address address;
     private String email;
     private String password;
+    private String company;
+    private String phone;
 
     public User(Name name, Address address, String email, String password) {
         this.name = name;
         this.address = address;
         this.email = email;
         this.password = password;
+    }
+
+    public User(Name name, Address address, String company, String email, String phone) {
+        this.name = name;
+        this.address = address;
+        this.company = company;
+        this.email = email;
+        this.phone = phone;
     }
 
     public Name getName() {
@@ -29,15 +39,18 @@ public class User {
         return password;
     }
 
-    @Override
-    public String toString() {
-        return "UserData.User{" +
-                "name=" + name +
-                ", address=" + address +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+
+    public String getCompany() {
+        return company;
     }
+
+
+    public String getPhone() {
+        return phone;
+    }
+
+
+
 }
 
 
