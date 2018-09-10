@@ -32,7 +32,7 @@ public class ReadFileClassDataGen {
     public User[] userData(int howManyEntries, Integer[] randomEntry) {
         User[] user = new User[howManyEntries];
         try {
-            File fileToRead = new File(this.getClass().getResource("/registration-data-file.json").toURI());
+            File fileToRead = new File(this.getClass().getResource("/registration-data-file.xml").toURI());
             InputStream inputStream = new BufferedInputStream(new FileInputStream(fileToRead));
 
             String extensionTemp = fileToRead.toString();
@@ -102,6 +102,19 @@ public class ReadFileClassDataGen {
                 userData[5]);
 
         return userToReturn;
+    }
+
+    public static void showSelectedData(User[] users, int howManyEntries) {
+        for (int i = 0; i < howManyEntries; i++) {
+
+            System.out.println("First name: " + users[i].getName().getFirstName());
+            System.out.println("Last name: " + users[i].getName().getLastName());
+            System.out.println("Country: " + users[i].getAddress().getCountry());
+            System.out.println("State/province: " + users[i].getAddress().getStateProvince());
+            System.out.println("Email: " + users[i].getEmail());
+            System.out.println("Password: " + users[i].getPassword());
+            System.out.println("------------");
+        }
     }
 
 }

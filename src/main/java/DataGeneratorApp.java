@@ -21,9 +21,11 @@ public class DataGeneratorApp {
 
         User[] users = entry.userData(howManyEntries, randomNumbersArray);
 
-        for (int i = 0; i < howManyEntries; i++) {
-            System.out.println(randomNumbersArray[i] + ". " + users[i]);
-        }
+//        for (int i = 0; i < howManyEntries; i++) {
+//            System.out.println(randomNumbersArray[i] + ". " + users[i]);
+//        }
+
+        entry.showSelectedData(users, howManyEntries);
 
 //         System.out.println(users[1].getName().getFirstName());
 //         System.out.println(users[1].getName().getLastName());

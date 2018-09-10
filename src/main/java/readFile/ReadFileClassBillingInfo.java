@@ -32,7 +32,7 @@ public class ReadFileClassBillingInfo {
     public User[] userData(int howManyEntries, Integer[] randomEntry) {
         User[] user = new User[howManyEntries];
         try {
-            File fileToRead = new File(this.getClass().getResource("/billingInfo-data.json").toURI());
+            File fileToRead = new File(this.getClass().getResource("/billingInfo-data.xml").toURI());
             InputStream inputStream = new BufferedInputStream(new FileInputStream(fileToRead));
 
             String extensionTemp = fileToRead.toString();
@@ -114,34 +114,34 @@ public class ReadFileClassBillingInfo {
 
                 switch (specifiedDataToShow[j]) {
                     case 1:
-                        System.out.println(users[i].getName().getFirstName());
+                        System.out.println("First name: " + users[i].getName().getFirstName());
                         break;
                     case 2:
-                        System.out.println(users[i].getName().getLastName());
+                        System.out.println("Last name: " + users[i].getName().getLastName());
                         break;
                     case 3:
-                        System.out.println(users[i].getCompany());
+                        System.out.println("Company: " + users[i].getCompany());
                         break;
                     case 4:
-                        System.out.println(users[i].getAddress().getStreet());
+                        System.out.println("Street: " + users[i].getAddress().getStreet());
                         break;
                     case 5:
-                        System.out.println(users[i].getAddress().getCity());
+                        System.out.println("City: " + users[i].getAddress().getCity());
                         break;
                     case 6:
-                        System.out.println(users[i].getAddress().getCountry());
+                        System.out.println("Country: " + users[i].getAddress().getCountry());
                         break;
                     case 7:
-                        System.out.println(users[i].getAddress().getStateProvince());
+                        System.out.println("State/province: " + users[i].getAddress().getStateProvince());
                         break;
                     case 8:
-                        System.out.println(users[i].getAddress().getPostalCode());
+                        System.out.println("Postal code: " + users[i].getAddress().getPostalCode());
                         break;
                     case 9:
-                        System.out.println(users[i].getEmail());
+                        System.out.println("Email: " + users[i].getEmail());
                         break;
                     case 10:
-                        System.out.println(users[i].getPhone());
+                        System.out.println("Phone number: " + users[i].getPhone());
                         break;
                 }
             }
