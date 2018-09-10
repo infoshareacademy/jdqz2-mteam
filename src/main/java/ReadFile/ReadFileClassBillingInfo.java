@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -31,8 +32,8 @@ public class ReadFileClassBillingInfo {
     public User[] userData(int howManyEntries, Integer[] randomEntry) {
         User[] user = new User[howManyEntries];
         try {
-            String path = "C:\\Users\\AMSO\\Mariusz\\data-generator\\src\\main\\resources\\";
-            File fileToRead = new File(path + "billingInfo-data.xml");
+            File fileToRead = new File( this.getClass().getResource("/billingInfo-data.json").toURI());
+
             InputStream inputStream = new BufferedInputStream(new FileInputStream(fileToRead));
 
             String extensionTemp = fileToRead.toString();
@@ -89,6 +90,8 @@ public class ReadFileClassBillingInfo {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (ParserConfigurationException | SAXException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         return user;
