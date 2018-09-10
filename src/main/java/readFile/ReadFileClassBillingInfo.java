@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -31,7 +32,7 @@ public class ReadFileClassBillingInfo {
     public User[] userData(int howManyEntries, Integer[] randomEntry) {
         User[] user = new User[howManyEntries];
         try {
-            File fileToRead = new File("billingInfo-data.xml");
+            File fileToRead = new File(this.getClass().getResource("/billingInfo-data.json").toURI());
             InputStream inputStream = new BufferedInputStream(new FileInputStream(fileToRead));
 
             String extensionTemp = fileToRead.toString();
@@ -85,10 +86,8 @@ public class ReadFileClassBillingInfo {
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-        } catch (IOException e) {
+        } catch (IOException | ParserConfigurationException | SAXException | URISyntaxException e) {
             System.out.println(e.getMessage());
-        } catch (ParserConfigurationException | SAXException e) {
-            e.printStackTrace();
         }
         return user;
     }
