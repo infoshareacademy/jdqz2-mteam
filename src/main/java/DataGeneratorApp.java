@@ -1,38 +1,20 @@
 import readFile.ReadFileClassDataGen;
 import userData.User;
 import java.util.HashSet;
-import java.util.Scanner;
+import java.util.Iterator;
+
 
 public class DataGeneratorApp {
     public static void main(String[] args) {
-
-        Scanner howManyEntriesScanner = new Scanner(System.in);
-        System.out.print("Enter number of users to generate: ");
-        int howManyEntries = howManyEntriesScanner.nextInt();
-//        int howManyEntries = 100;
-
+        int howManyEntries;
+        HashSet<Integer> randomNumbers;
         ReadFileClassDataGen entry = new ReadFileClassDataGen();
-        HashSet<Integer> randomNumberHashList = entry.randomNumbers(howManyEntries);
 
-        Integer[] randomNumbersArray = new Integer[randomNumberHashList.size()];
-        for (int i = 0; i < randomNumberHashList.size(); i++) {
-            randomNumbersArray = randomNumberHashList.toArray(new Integer[0]);
-        }
+        howManyEntries = entry.numberBetweenOneAndOneHundred();
+        randomNumbers = entry.generateRandomNumbers(howManyEntries);
 
-        User[] users = entry.userData(howManyEntries, randomNumbersArray);
-
-//        for (int i = 0; i < howManyEntries; i++) {
-//            System.out.println(randomNumbersArray[i] + ". " + users[i]);
-//        }
-
+        User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
+        System.out.println(users[0].getName());
         entry.showSelectedData(users, howManyEntries);
-
-//         System.out.println(users[1].getName().getFirstName());
-//         System.out.println(users[1].getName().getLastName());
-//         System.out.println(users[1].getAddress().getCountry());
-//         System.out.println(users[1].getAddress().getStateProvince());
-//         System.out.println(users[1].getEmail());
-//         System.out.println(users[1].getPassword());
-
     }
 }

@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
 import javax.json.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,21 +16,46 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class ReadFileClassDataGen {
 
-    public HashSet<Integer> randomNumbers(int howManyEntries) {
+    public HashSet<Integer> generateRandomNumbers(int howManyEntries) {
+        HashSet<Integer> randomEntry = new HashSet<>();
 
-        HashSet<Integer> randomEntry = new HashSet<Integer>();
         while (randomEntry.size() < howManyEntries) {
             randomEntry.add(new Random().nextInt(100));
         }
         return randomEntry;
     }
 
-    public User[] userData(int howManyEntries, Integer[] randomEntry) {
+
+    public int numberBetweenOneAndOneHundred() {
+        int howManyEntries;
+        int counter = 0;
+        do {
+            if (counter >= 1) {
+                System.out.println("\nEntered number is out of range!");
+            }
+            System.out.print("Please enter the number of users to generate (from range 1-100): ");
+            howManyEntries = Integer.parseInt(inputScanner());
+            counter++;
+        } while (howManyEntries > 100 || howManyEntries < 1);
+        return howManyEntries;
+    }
+
+
+    private String inputScanner() {
+        Scanner enteredDataScanner = new Scanner(System.in);
+        return enteredDataScanner.nextLine();
+    }
+
+
+    public User[] generateRandomUsers(int howManyEntries, HashSet<Integer> randomEntry) {
+
         User[] user = new User[howManyEntries];
         try {
             File fileToRead = new File(this.getClass().getResource("/registration-data-file.xml").toURI());
@@ -55,12 +81,13 @@ public class ReadFileClassDataGen {
                 for (int i = 0; i < recordsQuantity; i++) {
                     Node node = nodeList.item(i);
                     node.getParentNode().removeChild(node);
-                    resultsXML[i] = nodeList.item(i).getTextContent().trim().replaceAll("\\s+", ",");
+                    resultsXML[i] = nodeList.item(i).getTextContent().trim().replaceAll("\\s{2,}", ",");
                 }
 
                 int i = 0;
-                while (i < howManyEntries) {
-                    String singleUser = resultsXML[randomEntry[i]];
+
+                for (Integer aRandomEntry : randomEntry) {
+                    String singleUser = resultsXML[aRandomEntry];
                     String[] userData = singleUser.split(",");
                     user[i] = createUser(userData);
                     i++;
@@ -74,8 +101,9 @@ public class ReadFileClassDataGen {
                 JsonArray resultsJSON = jsonObject.getJsonArray("data");
 
                 int i = 0;
-                while (i < howManyEntries) {
-                    String singleUser = resultsJSON.get(randomEntry[i]).toString();
+
+                for (Integer aRandomEntry : randomEntry) {
+                    String singleUser = resultsJSON.get(aRandomEntry).toString();
                     String singleUserPureData = singleUser.replaceAll("[\\[\\]{}()\"]", "");
                     String[] userData = singleUserPureData.split(",");
 
@@ -92,19 +120,17 @@ public class ReadFileClassDataGen {
         return user;
     }
 
-//            0 - firstname, 1 - lastname, 2 - country, 3 - stateProvince, 4 - email  5 - pass
+    //0 - firstname, 1 - lastname, 2 - country, 3 - stateProvince, 4 - email  5 - pass
     private User createUser(String[] userData) {
-
-        User userToReturn = new User(
+        return new User(
                 new Name(userData[0], userData[1]),
                 new Address(userData[2], userData[3]),
                 userData[4],
                 userData[5]);
-
-        return userToReturn;
     }
 
-    public static void showSelectedData(User[] users, int howManyEntries) {
+
+    public void showSelectedData(User[] users, int howManyEntries) {
         for (int i = 0; i < howManyEntries; i++) {
 
             System.out.println("First name: " + users[i].getName().getFirstName());
@@ -116,5 +142,4 @@ public class ReadFileClassDataGen {
             System.out.println("------------");
         }
     }
-
 }

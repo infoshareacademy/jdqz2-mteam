@@ -19,7 +19,7 @@ public class Name {
 
     @Override
     public String toString() {
-        return "userData.Name{" +
+        return "generateRandomUsers.Name{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
