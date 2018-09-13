@@ -42,7 +42,7 @@ public class CommonMethods {
 
     String inputScanner() {
         Scanner enteredDataScanner = new Scanner(System.in);
-        return enteredDataScanner.nextLine();
+            return enteredDataScanner.nextLine();
     }
 
 

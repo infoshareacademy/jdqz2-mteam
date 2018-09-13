@@ -17,11 +17,4 @@ public class Name {
         return lastName;
     }
 
-    @Override
-    public String toString() {
-        return "generateRandomUsers.Name{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }

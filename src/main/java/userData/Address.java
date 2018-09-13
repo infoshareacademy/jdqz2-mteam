@@ -16,10 +16,6 @@ public class Address {
     this.postalCode = postalCode;
   }
 
-  public Address(String country, String stateProvince) {
-    this.country = country;
-    this.stateProvince = stateProvince;
-  }
 
   public String getStreet() {
     return street;
@@ -41,14 +37,5 @@ public class Address {
     return postalCode;
   }
 
-  @Override
-  public String toString() {
-    return "Address{" +
-            "street='" + street + '\'' +
-            ", city='" + city + '\'' +
-            ", country='" + country + '\'' +
-            ", stateProvince='" + stateProvince + '\'' +
-            ", postalCode='" + postalCode + '\'' +
-            '}';
-  }
+
 }
