@@ -8,7 +8,6 @@ import userData.User;
 import java.io.ByteArrayInputStream;
 import java.util.HashSet;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 
@@ -75,6 +74,5 @@ public class DataGeneratorAppTest extends CommonMethods {
         assertEquals( "YUG77EXC9ZE", users[0].getPassword());
         assertEquals("106-558-007", users[0].getPhone());
     }
-
 
 }

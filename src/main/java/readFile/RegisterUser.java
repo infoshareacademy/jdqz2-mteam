@@ -5,7 +5,6 @@ import userData.User;
 
 public class RegisterUser extends CommonMethods{
 
-
     public void showSelectedData(User[] users, int howManyEntries) {
         for (int i = 0; i < howManyEntries; i++) {
 

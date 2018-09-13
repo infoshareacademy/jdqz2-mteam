@@ -1,9 +1,7 @@
 package readFile;
 
-
 import userData.User;
 import java.util.*;
-
 
 public class BillingInfo extends CommonMethods{
 
@@ -26,7 +24,6 @@ public class BillingInfo extends CommonMethods{
 
         return Arrays.stream(stringArrayData).mapToInt(Integer::parseInt).toArray();
     }
-
 
 
     public static void showSelectedData(User[] users, int[] specifiedDataToShow, int howManyEntries) {

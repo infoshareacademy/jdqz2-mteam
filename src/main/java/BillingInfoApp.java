@@ -1,8 +1,6 @@
 
 import readFile.BillingInfo;
 import userData.User;
-
-
 import java.util.*;
 
 public class BillingInfoApp {
