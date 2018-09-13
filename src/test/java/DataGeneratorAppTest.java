@@ -1,11 +1,3 @@
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-import readFile.ReadFileClassDataGen;
-import java.util.HashSet;
-
-
 import static org.junit.Assert.assertEquals;
 
 //@RunWith(Parameterized.class)
@@ -19,7 +11,7 @@ public class DataGeneratorAppTest {
 //    //@Parameters(value = '{"0, 0", "4, 4", "55, 55", "100, 55"}')
 //    public void testQuantityOfUsersEntered() {
 //        howManyEntries = 100;
-//        ReadFileClassDataGen entry = new ReadFileClassDataGen();
+//        RegisterUser entry = new RegisterUser();
 //        HashSet<Integer> randomNumberHashList = entry.randomNumbers(howManyEntries);
 //        Integer[] randomNumbersArray = new Integer[randomNumberHashList.size()];
 //

@@ -1,20 +1,18 @@
-import readFile.ReadFileClassDataGen;
+import readFile.RegisterUser;
 import userData.User;
 import java.util.HashSet;
-import java.util.Iterator;
 
 
 public class DataGeneratorApp {
     public static void main(String[] args) {
         int howManyEntries;
         HashSet<Integer> randomNumbers;
-        ReadFileClassDataGen entry = new ReadFileClassDataGen();
+        RegisterUser entry = new RegisterUser();
 
         howManyEntries = entry.numberBetweenOneAndOneHundred();
         randomNumbers = entry.generateRandomNumbers(howManyEntries);
 
         User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
-        System.out.println(users[0].getName());
         entry.showSelectedData(users, howManyEntries);
     }
 }
