@@ -25,26 +25,18 @@ public class User {
     public Address getAddress() {
         return address;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getPassword() {
         return password;
     }
-
-
     public String getCompany() {
         return company;
     }
-
-
     public String getPhone() {
         return phone;
     }
-
-
 
 }
 
