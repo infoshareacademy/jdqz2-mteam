@@ -1,6 +1,7 @@
-package readFile;
+package com.infoshare.mteam.readFile;
 
-import userData.User;
+import com.infoshare.mteam.UserData.User;
+
 import java.util.*;
 
 public class BillingInfo extends CommonMethods{

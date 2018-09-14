@@ -1,19 +1,21 @@
+package com.infoshare.mteam;
 
-import readFile.BillingInfo;
+import com.infoshare.mteam.readFile.RegisterUser;
 import userData.User;
-import java.util.*;
 
-public class BillingInfoApp {
+import java.util.HashSet;
+
+
+public class DataGeneratorApp {
     public static void main(String[] args) {
         int howManyEntries;
-        int[] specifiedDataToShow;
         HashSet<Integer> randomNumbers;
-        BillingInfo entry = new BillingInfo();
+        RegisterUser entry = new RegisterUser();
 
         howManyEntries = entry.numberBetweenOneAndOneHundred();
         randomNumbers = entry.generateRandomNumbers(howManyEntries);
-        specifiedDataToShow = entry.specifiedDataToShow();
+
         User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
-        BillingInfo.showSelectedData(users, specifiedDataToShow, howManyEntries);
+        entry.showSelectedData(users, howManyEntries);
     }
 }

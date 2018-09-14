@@ -1,6 +1,6 @@
-package readFile;
+package com.infoshare.mteam.readFile;
 
-import userData.User;
+import com.infoshare.mteam.UserData.User;
 
 
 public class RegisterUser extends CommonMethods{

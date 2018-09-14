@@ -1,13 +1,13 @@
-package readFile;
+package com.infoshare.mteam.readFile;
 
+import com.infoshare.mteam.UserData.Address;
+import com.infoshare.mteam.UserData.Name;
+import com.infoshare.mteam.UserData.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import userData.Address;
-import userData.Name;
-import userData.User;
 
 import javax.json.Json;
 import javax.json.JsonArray;

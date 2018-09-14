@@ -1,9 +1,11 @@
+package com.infoshare.mteam;
+
+import com.infoshare.mteam.UserData.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import readFile.CommonMethods;
-import readFile.RegisterUser;
-import userData.User;
+import com.infoshare.mteam.readFile.CommonMethods;
+import com.infoshare.mteam.readFile.RegisterUser;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashSet;

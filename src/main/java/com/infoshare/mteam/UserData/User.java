@@ -1,4 +1,4 @@
-package userData;
+package com.infoshare.mteam.UserData;
 
 public class User {
     private Name name;
