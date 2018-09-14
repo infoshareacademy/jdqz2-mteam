@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.infoshare.mteam.userGenerator.userGenerator;
 
-import java.io.ByteArrayInputStream;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,46 +15,26 @@ import static org.junit.Assert.assertEquals;
 public class DataGeneratorAppTest extends userGenerator {
     private int howManyEntries;
     private Set<Integer> randomNumbers;
-    userGenerator entry;
+    userGenerator newUser;
 
 
     @Before
-    public void setUp() throws Exception {
-        entry = new userGenerator();
+    public void setUp() {
+        newUser = new userGenerator();
         randomNumbers = new HashSet<>();
+        howManyEntries = 5;
     }
-
-    @Test
-    public void enteringNumberBetweenOneAndOneHundred() {
-        String data = "5";
-        System.setIn(new ByteArrayInputStream(data.getBytes()));
-        howManyEntries = entry.numberBetweenOneAndOneHundred();
-        assertEquals(5, howManyEntries);
-    }
-
-    //po drugiej pętli input scannera jest pusty i wychodzi błąd
-    //Jak to przetestowac?
-//    @Test
-//    public void checkingMessageWhenEnteringNumberOutsideOneAndOneHundred() {
-//        RegisterUser entry = new RegisterUser();
-//        String data = "101";
-//        System.setIn(new ByteArrayInputStream(data.getBytes()));
-//        howManyEntries = entry.numberBetweenOneAndOneHundred();
-//        assertEquals("\nEntered number is out of range!", System.out);
-//    }
 
     @Test
     public void checkingQuantityOfRandomNumbers() {
-        howManyEntries = 5;
-        randomNumbers = entry.generateRandomNumbers(howManyEntries);
+        randomNumbers = newUser.generateRandomNumbers(howManyEntries);
         assertEquals(5, randomNumbers.size());
     }
 
     @Test
     public void checkingQuantityOfUsers() {
-        howManyEntries = 5;
-        randomNumbers = entry.generateRandomNumbers(howManyEntries);
-        User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
+        randomNumbers = newUser.generateRandomNumbers(howManyEntries);
+        User[] users = newUser.generateRandomUsers(howManyEntries, randomNumbers);
         assertEquals(5, users.length);
     }
 
@@ -63,7 +42,7 @@ public class DataGeneratorAppTest extends userGenerator {
     public void checkingAccessToUserData() {
         randomNumbers.add(22);
         howManyEntries = 1;
-        User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
+        User[] users = newUser.generateRandomUsers(howManyEntries, randomNumbers);
         assertEquals( "Grady", users[0].getName().getFirstName());
         assertEquals( "Nielsen", users[0].getName().getLastName());
         assertEquals( "Aliquam Erat LLC", users[0].getCompany());
@@ -76,5 +55,6 @@ public class DataGeneratorAppTest extends userGenerator {
         assertEquals( "YUG77EXC9ZE", users[0].getPassword());
         assertEquals("106-558-007", users[0].getPhone());
     }
+
 
 }

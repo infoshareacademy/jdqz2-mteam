@@ -8,19 +8,22 @@ import java.util.Set;
 
 public class DataGeneratorApp {
     public static void main(String[] args) {
-        int howManyEntries;
+        int howManyUsers;
+        int selectedData;
         Set<Integer> randomNumbers;
-        userGenerator entry = new userGenerator();
-
-        howManyEntries = entry.numberBetweenOneAndOneHundred();
-        randomNumbers = entry.generateRandomNumbers(howManyEntries);
-
-        User[] users = entry.generateRandomUsers(howManyEntries, randomNumbers);
-
-        System.out.print("register data (0) or billging data (1): ");
+        userGenerator newUsers = new userGenerator();
         Scanner inputScanner = new Scanner(System.in);
-        int selectedData = inputScanner.nextInt();
-        entry.showSelectedData(users, selectedData);
 
+
+        System.out.print("Please enter the number of users to generate (from range 1-100): ");
+        howManyUsers = Integer.parseInt(inputScanner.nextLine());
+
+        randomNumbers = newUsers.generateRandomNumbers(howManyUsers);
+        User[] users = newUsers.generateRandomUsers(howManyUsers, randomNumbers);
+
+        System.out.print("Which data do you want to show - register data (0) or billing data (1): ");
+        selectedData = inputScanner.nextInt();
+
+        newUsers.showSelectedData(users, selectedData);
     }
 }

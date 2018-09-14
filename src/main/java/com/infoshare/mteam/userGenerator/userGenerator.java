@@ -20,32 +20,9 @@ import java.io.*;
 import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Set;
 
 public class userGenerator {
-
-    public int numberBetweenOneAndOneHundred() {
-        int howManyEntries;
-        int counter = 0;
-
-        do {
-            if (counter >= 1) {
-                System.out.println("\nEntered number is out of range!");
-            }
-            System.out.print("Please enter the number of users to generate (from range 1-100): ");
-            howManyEntries = Integer.parseInt(inputScanner());
-            counter++;
-        } while (howManyEntries > 100 || howManyEntries < 1);
-        return howManyEntries;
-    }
-
-
-    String inputScanner() {
-        Scanner enteredDataScanner = new Scanner(System.in);
-            return enteredDataScanner.nextLine();
-    }
-
 
     public Set<Integer> generateRandomNumbers(int howManyEntries) {
         Set<Integer> randomEntry = new HashSet<>();
