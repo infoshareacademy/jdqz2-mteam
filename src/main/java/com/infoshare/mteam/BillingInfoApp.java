@@ -1,7 +1,7 @@
 package com.infoshare.mteam;
 
+import com.infoshare.mteam.UserData.User;
 import com.infoshare.mteam.readFile.BillingInfo;
-import userData.User;
 import java.util.*;
 
 public class BillingInfoApp {

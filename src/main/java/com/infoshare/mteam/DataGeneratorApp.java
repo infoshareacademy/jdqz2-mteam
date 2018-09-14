@@ -1,7 +1,7 @@
 package com.infoshare.mteam;
 
+import com.infoshare.mteam.UserData.User;
 import com.infoshare.mteam.readFile.RegisterUser;
-import userData.User;
 
 import java.util.HashSet;
 
