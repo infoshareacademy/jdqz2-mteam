@@ -1,4 +1,4 @@
-package com.infoshare.mteam.readFile;
+package com.infoshare.mteam.userGenerator;
 
 import com.infoshare.mteam.UserData.Address;
 import com.infoshare.mteam.UserData.Name;
@@ -21,8 +21,9 @@ import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
-public class CommonMethods {
+public class userGenerator {
 
     public int numberBetweenOneAndOneHundred() {
         int howManyEntries;
@@ -46,8 +47,8 @@ public class CommonMethods {
     }
 
 
-    public HashSet<Integer> generateRandomNumbers(int howManyEntries) {
-        HashSet<Integer> randomEntry = new HashSet<>();
+    public Set<Integer> generateRandomNumbers(int howManyEntries) {
+        Set<Integer> randomEntry = new HashSet<>();
 
         while (randomEntry.size() < howManyEntries) {
             randomEntry.add(new Random().nextInt(100));
@@ -56,7 +57,7 @@ public class CommonMethods {
     }
 
 
-    public User[] generateRandomUsers(int howManyEntries, HashSet<Integer> randomEntry) {
+    public User[] generateRandomUsers(int howManyEntries, Set<Integer> randomEntry) {
         User[] user = new User[howManyEntries];
         try {
             String[] resource = {"/dataFile.json", "/dataFile.xml"};
@@ -132,6 +133,38 @@ public class CommonMethods {
                     userData[9],
                     userData[10]);
         return user;
+    }
+
+
+    public void showSelectedData(User[] users, int typeOfData) {
+
+        if (typeOfData == 0) {
+            for (int i = 0; i < users.length; i++) {
+
+                System.out.println("First name: " + users[i].getName().getFirstName());
+                System.out.println("Last name: " + users[i].getName().getLastName());
+                System.out.println("Country: " + users[i].getAddress().getCountry());
+                System.out.println("State/province: " + users[i].getAddress().getStateProvince());
+                System.out.println("Email: " + users[i].getEmail());
+                System.out.println("Password: " + users[i].getPassword());
+                System.out.println("------------");
+            }
+        } else {
+            for (int i = 0; i < users.length; i++) {
+
+                System.out.println("First name: " + users[i].getName().getFirstName());
+                System.out.println("Last name: " + users[i].getName().getLastName());
+                System.out.println("Company: " + users[i].getCompany());
+                System.out.println("Street: " + users[i].getAddress().getStreet());
+                System.out.println("City: " + users[i].getAddress().getCity());
+                System.out.println("Country: " + users[i].getAddress().getCountry());
+                System.out.println("State/province: " + users[i].getAddress().getStateProvince());
+                System.out.println("Postal code: " + users[i].getAddress().getPostalCode());
+                System.out.println("Email: " + users[i].getEmail());
+                System.out.println("Phone: " + users[i].getPhone());
+                System.out.println("------------");
+            }
+        }
     }
 
 }

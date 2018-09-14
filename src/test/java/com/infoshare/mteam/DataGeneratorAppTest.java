@@ -4,24 +4,24 @@ import com.infoshare.mteam.UserData.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infoshare.mteam.readFile.CommonMethods;
-import com.infoshare.mteam.readFile.RegisterUser;
+import com.infoshare.mteam.userGenerator.userGenerator;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
 
-public class DataGeneratorAppTest extends CommonMethods {
+public class DataGeneratorAppTest extends userGenerator {
     private int howManyEntries;
-    private HashSet<Integer> randomNumbers;
-    RegisterUser entry;
+    private Set<Integer> randomNumbers;
+    userGenerator entry;
 
 
     @Before
     public void setUp() throws Exception {
-        entry = new RegisterUser();
+        entry = new userGenerator();
         randomNumbers = new HashSet<>();
     }
 
