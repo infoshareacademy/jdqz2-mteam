@@ -1,4 +1,4 @@
-package UserData;
+package com.infoshare.mteam.UserData;
 
 public class Name {
     private String firstName;
@@ -17,11 +17,4 @@ public class Name {
         return lastName;
     }
 
-    @Override
-    public String toString() {
-        return "UserData.Name{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }
