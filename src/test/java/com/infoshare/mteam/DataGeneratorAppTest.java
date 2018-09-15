@@ -4,7 +4,7 @@ import com.infoshare.mteam.UserData.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infoshare.mteam.userGenerator.userGenerator;
+import com.infoshare.mteam.userGenerator.UserGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,15 +12,15 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 
-public class DataGeneratorAppTest extends userGenerator {
+public class DataGeneratorAppTest extends UserGenerator {
     private int howManyEntries;
     private Set<Integer> randomNumbers;
-    userGenerator newUser;
+    UserGenerator newUser;
 
 
     @Before
     public void setUp() {
-        newUser = new userGenerator();
+        newUser = new UserGenerator();
         randomNumbers = new HashSet<>();
         howManyEntries = 5;
     }

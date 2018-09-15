@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class userGenerator {
+public class UserGenerator {
 
     public Set<Integer> generateRandomNumbers(int howManyEntries) {
         Set<Integer> randomEntry = new HashSet<>();
@@ -102,43 +102,43 @@ public class userGenerator {
     private User createUser(String[] userData) {
     //      0 - firstname, 1 - lastname, 2 - company, 3 - street, 4 -city, 5 - country,
     //      6 - state/province, 7 - Postal Code, 8 - email  9 - phone, 10 - password
-        User user = new User(
+        return new User(
                     new Name(userData[0], userData[1]),
                     new Address(userData[3], userData[4], userData[5], userData[6], userData[7]),
                     userData[2],
                     userData[8],
                     userData[9],
                     userData[10]);
-        return user;
+
     }
 
 
     public void showSelectedData(User[] users, int typeOfData) {
 
         if (typeOfData == 0) {
-            for (int i = 0; i < users.length; i++) {
+            for (User user : users) {
 
-                System.out.println("First name: " + users[i].getName().getFirstName());
-                System.out.println("Last name: " + users[i].getName().getLastName());
-                System.out.println("Country: " + users[i].getAddress().getCountry());
-                System.out.println("State/province: " + users[i].getAddress().getStateProvince());
-                System.out.println("Email: " + users[i].getEmail());
-                System.out.println("Password: " + users[i].getPassword());
+                System.out.println("First name: " + user.getName().getFirstName());
+                System.out.println("Last name: " + user.getName().getLastName());
+                System.out.println("Country: " + user.getAddress().getCountry());
+                System.out.println("State/province: " + user.getAddress().getStateProvince());
+                System.out.println("Email: " + user.getEmail());
+                System.out.println("Password: " + user.getPassword());
                 System.out.println("------------");
             }
         } else {
-            for (int i = 0; i < users.length; i++) {
+            for (User user : users) {
 
-                System.out.println("First name: " + users[i].getName().getFirstName());
-                System.out.println("Last name: " + users[i].getName().getLastName());
-                System.out.println("Company: " + users[i].getCompany());
-                System.out.println("Street: " + users[i].getAddress().getStreet());
-                System.out.println("City: " + users[i].getAddress().getCity());
-                System.out.println("Country: " + users[i].getAddress().getCountry());
-                System.out.println("State/province: " + users[i].getAddress().getStateProvince());
-                System.out.println("Postal code: " + users[i].getAddress().getPostalCode());
-                System.out.println("Email: " + users[i].getEmail());
-                System.out.println("Phone: " + users[i].getPhone());
+                System.out.println("First name: " + user.getName().getFirstName());
+                System.out.println("Last name: " + user.getName().getLastName());
+                System.out.println("Company: " + user.getCompany());
+                System.out.println("Street: " + user.getAddress().getStreet());
+                System.out.println("City: " + user.getAddress().getCity());
+                System.out.println("Country: " + user.getAddress().getCountry());
+                System.out.println("State/province: " + user.getAddress().getStateProvince());
+                System.out.println("Postal code: " + user.getAddress().getPostalCode());
+                System.out.println("Email: " + user.getEmail());
+                System.out.println("Phone: " + user.getPhone());
                 System.out.println("------------");
             }
         }

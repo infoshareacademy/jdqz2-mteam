@@ -1,7 +1,7 @@
 package com.infoshare.mteam;
 
 import com.infoshare.mteam.UserData.User;
-import com.infoshare.mteam.userGenerator.userGenerator;
+import com.infoshare.mteam.userGenerator.UserGenerator;
 
 import java.util.Scanner;
 import java.util.Set;
@@ -11,7 +11,7 @@ public class DataGeneratorApp {
         int howManyUsers;
         int selectedData;
         Set<Integer> randomNumbers;
-        userGenerator newUsers = new userGenerator();
+        UserGenerator newUsers = new UserGenerator();
         Scanner inputScanner = new Scanner(System.in);
 
 
