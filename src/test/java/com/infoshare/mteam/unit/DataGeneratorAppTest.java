@@ -1,10 +1,9 @@
-package com.infoshare.mteam;
+package com.infoshare.mteam.unit;
 
 import com.infoshare.mteam.UserData.User;
+import com.infoshare.mteam.userGenerator.UserGenerator;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.infoshare.mteam.userGenerator.UserGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
