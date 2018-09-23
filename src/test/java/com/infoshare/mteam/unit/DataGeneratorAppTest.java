@@ -1,7 +1,7 @@
 package com.infoshare.mteam.unit;
 
-import com.infoshare.mteam.userData.User;
-import com.infoshare.mteam.userGenerator.UserGenerator;
+import com.infoshare.mteam.generator.userData.User;
+import com.infoshare.mteam.generator.userGenerator.UserGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
