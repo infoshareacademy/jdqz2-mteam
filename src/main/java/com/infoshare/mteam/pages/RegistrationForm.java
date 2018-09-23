@@ -1,4 +1,4 @@
-package com.infoshare.mteam.ui;
+package com.infoshare.mteam.pages;
 
 public class RegistrationForm {
 }
