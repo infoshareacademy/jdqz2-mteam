@@ -1,8 +1,8 @@
 package com.infoshare.mteam.userGenerator;
 
-import com.infoshare.mteam.UserData.Address;
-import com.infoshare.mteam.UserData.Name;
-import com.infoshare.mteam.UserData.User;
+import com.infoshare.mteam.userData.Address;
+import com.infoshare.mteam.userData.Name;
+import com.infoshare.mteam.userData.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
