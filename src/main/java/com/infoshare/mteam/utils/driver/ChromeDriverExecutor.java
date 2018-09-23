@@ -4,9 +4,9 @@ import org.apache.commons.lang3.SystemUtils;
 
 class ChromeDriverExecutor extends DriverExecutor {
 
-    private static final String CHROME_WINDOWS_PATH = "src/test/resources/drivers/chrome/chromedriver.exe";
-    private static final String CHROME_MACOS_PATH = "src/test/resources/drivers/chrome/chromedriverMac";
-    private static final String CHROME_LINUX_64_PATH = "src/test/resources/drivers/chrome/chromedriver_Linux64";
+    private static final String CHROME_WINDOWS_PATH = "src/main/resources/drivers/chrome/chromedriver.exe";
+    private static final String CHROME_MACOS_PATH = "src/main/resources/drivers/chrome/chromedriverMac";
+    private static final String CHROME_LINUX_64_PATH = "src/main/resources/drivers/chrome/chromedriver_Linux64";
 
     static String getProperDriverExecutable() {
         String osName = System.getProperty("os.name").toLowerCase();
