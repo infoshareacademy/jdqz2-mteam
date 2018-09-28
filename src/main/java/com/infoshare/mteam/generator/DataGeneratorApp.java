@@ -1,7 +1,7 @@
-package com.infoshare.mteam;
+package com.infoshare.mteam.generator;
 
-import com.infoshare.mteam.UserData.User;
-import com.infoshare.mteam.userGenerator.UserGenerator;
+import com.infoshare.mteam.generator.userData.User;
+import com.infoshare.mteam.generator.userGenerator.UserGenerator;
 
 import java.util.Scanner;
 import java.util.Set;
