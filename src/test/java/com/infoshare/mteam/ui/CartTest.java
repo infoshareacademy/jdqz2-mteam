@@ -31,14 +31,15 @@ public class CartTest {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.manage().window().maximize();
 
-        homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage = new HomePage(driver);
 
         driver.get(PAGE_URL);
     }
 
     @Test
     public void clickChartIconAndcheckIfEmpty() {
-        waits.waitForElementToBeVisible();
+        //uzupenij elementem!!
+//        waits.waitForElementToBeVisible();
         homePage.clickOnShoppingCart();
     }
 }
