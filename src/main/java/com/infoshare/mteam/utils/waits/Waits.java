@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Waits {
 
-    private static final int EXPLICIT_WAIT_TIMEOUT = 10;
+    private static final int EXPLICIT_WAIT_TIMEOUT = 15;
 
     private WebDriver driver;
 
