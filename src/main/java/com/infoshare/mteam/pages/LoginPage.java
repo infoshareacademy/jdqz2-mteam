@@ -20,9 +20,6 @@ public class LoginPage {
     @FindBy(css = "#signin_password")
     private WebElement fieldPassword;
 
-//    @FindBy(css = "#customerAccount")
-//    private WebElement textLoggedInAs;
-
     @FindBy(css = ".p-title")
     List<WebElement>  myAccountMenu;
 
@@ -45,7 +42,6 @@ public class LoginPage {
     }
 
     public String getTextAfterLogin(){
-
         wait.until(ExpectedConditions.visibilityOfAllElements(myAccountMenu));
         return myAccountMenu.get(0).getText();
     }
