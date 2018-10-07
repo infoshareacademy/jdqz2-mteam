@@ -42,16 +42,26 @@ public class RegistrationForm {
     @FindBy(xpath = "//button[@class='btn btn-default login-btn']")
     private WebElement registerButton;
 
+    @FindBy(xpath = "//li[@class='click_menu']/a")
+    private WebElement welcomeNewUser;
+
 
     public void fillAllInputs() {
         User[] user1 = generator.generateRandomUsers(1, generator.generateRandomNumbers(1));
         firstName.sendKeys(user1[0].getName().getFirstName());
-//        Waits wait = new Waits(driver);
-//        wait.waitForElementToBeVisible(firstName);
-
+        lastName.sendKeys(user1[0].getName().getLastName());
+        country.sendKeys(user1[0].getAddress().getCountry());
+        stateProvince.sendKeys(user1[0].getAddress().getStateProvince());
+        email.sendKeys(user1[0].getEmail());
+        password.sendKeys(user1[0].getPassword());
+        repeatPassword.sendKeys(user1[0].getPassword());
     }
 
     public void clickRegisterButton() {
         registerButton.click();
+    }
+
+    public boolean isUserLoggedIn() {
+        return welcomeNewUser.isDisplayed();
     }
 }

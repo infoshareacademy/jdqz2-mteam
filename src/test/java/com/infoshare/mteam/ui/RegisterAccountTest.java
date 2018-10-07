@@ -17,7 +17,6 @@ public class RegisterAccountTest {
     private WebDriver driver;
     private HomePage homePage;
     private RegistrationForm registrationForm;
-    private Waits waits;
 
     @Before
     public void setUp() {
@@ -34,5 +33,7 @@ public class RegisterAccountTest {
     public void registerNewAccount() {
         homePage.goToRegisterNewUserPage();
         registrationForm.fillAllInputs();
+        registrationForm.clickRegisterButton();
+        assertThat(registrationForm.isUserLoggedIn()).isEqualTo(true);
     }
 }
