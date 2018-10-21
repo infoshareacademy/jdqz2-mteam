@@ -31,6 +31,9 @@ public class HomePage {
     @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[1]/a")
     private WebElement bagItem;
 
+    @FindBy(xpath = "/html/body/header/div[2]/div/div/div[3]/div[2]/div[1]/a")
+    private WebElement goToCartButton;
+
 
     /////////////////////////////////////////////////////////////////////
 
@@ -81,6 +84,7 @@ public class HomePage {
             e.printStackTrace();
         }
     }
+
 
 
 

@@ -63,6 +63,7 @@ public class CartTest {
         Assert.assertEquals(URL, "http://demo.shopizer.com:8080/shop/category/handbags.html/ref=c:1");
         Assert.assertTrue(driver.getTitle().equals("Vintage handbags"));
 
+
     }
 
 
