@@ -2,6 +2,7 @@ package com.infoshare.mteam.pages;
 
 import com.infoshare.mteam.utils.waits.Waits;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -25,11 +28,16 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[2]/div/div/a")
+//    @FindBy(css = "#productsContainer > div:nth-child(1) > div.product-content.text-center > div > div")
+    @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
     private WebElement addToCartButton;
 
-    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[1]/a")
+//    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[1]/a")
+    @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
     private WebElement bagItem;
+
+    @FindBy(css = "#miniCartSummary > a > font > strong")
+    private WebElement numberOfItemsInCart;
 
 
     /////////////////////////////////////////////////////////////////////
@@ -62,7 +70,7 @@ public class HomePage {
 
     public void clickOnParticularItem () {
 
-        bagItem.click();
+//        bagItem.click();
 
         Waits wait = new Waits(driver);
         wait.waitForElementToBeVisible(addToCartButton);
@@ -74,12 +82,9 @@ public class HomePage {
 
     public void addToCart () {
 
+        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")));
         addToCartButton.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -90,9 +95,16 @@ public class HomePage {
 
     public void clickOnShoppingCart () {
 
-        Waits wait = new Waits(driver);
-        wait.waitForElementToBeVisible(shoppingCartIcon);
+//        Waits wait = new Waits(driver);
+//        wait.waitForElementToBeVisible(shoppingCartIcon);
+        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#miniCartSummary > a")));
+
+
+
         shoppingCartIcon.click();
+        String numberOfItems = numberOfItemsInCart.getText();
+        System.out.println("@@@@@@@@@@@@@@@@@numberOfItems: " + numberOfItems);
     }
 
     public void getProductListSize () {
