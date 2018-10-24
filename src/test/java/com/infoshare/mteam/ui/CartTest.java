@@ -50,24 +50,15 @@ public class CartTest {
     @Test
     public void testAddToCart () {
 
-        driver.get(PAGE_URL);
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main_h\"]/div/div/div/div/nav/ul/li[1]/a")));
-        element.click();
-
-        WebElement bagsList = driver.findElement(By.className("products-grid"));
-        String URL = driver.getCurrentUrl();
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + URL);
-        Assert.assertEquals(URL, "http://demo.shopizer.com:8080/shop/category/handbags.html/ref=c:1");
-        Assert.assertTrue(driver.getTitle().equals("Vintage handbags"));
-
-        wait = new WebDriverWait(driver, 10);
-
+        homePage.selectOneCategoryMenu(0,"Vintage handbags");
         homePage.addToCart();
-        homePage.clickOnShoppingCart();
+        homePage.checkItemsInShoppingCart();
+        homePage.hoverOnTheShoppingCart();
+//        homePage.expectShoppingCartIsEmpty();
+        homePage.goToShoppingCart();
     }
+
+
 
 
 
