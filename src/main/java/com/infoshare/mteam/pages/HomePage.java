@@ -29,20 +29,15 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-//    @FindBy(css = "#productsContainer > div:nth-child(1) > div.product-content.text-center > div > div")
     @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
-//    @FindBy(css = "#productsContainer > div:nth-child(1) > div.product-content.text-center > div > div > a")
     private WebElement addToCartButton;
 
-//    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[1]/a")
     @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
     private WebElement bagItem;
 
     @FindBy(css = "#miniCartSummary > a > font > strong")
     private WebElement numberOfItemsInCart;
 
-//    @FindBy(css = "#miniCartSummary > a > span")
-//    @FindBy(css = "#miniCartSummary")
     @FindBy(css = "#miniCartDetails > h4")
     private WebElement cartDetailsForEmptyCart;
 
@@ -77,27 +72,10 @@ public class HomePage {
     private WebElement foo;
 
 
-    public void scrollDown () throws Exception {
-
-        Actions a = new Actions(driver);
-        a.moveToElement(bagItem);
-    }
-
-    public void clickOnParticularItem () {
-
-//        bagItem.click();
-
-        Waits wait = new Waits(driver);
-        wait.waitForElementToBeVisible(addToCartButton);
-
-        String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL, "http://demo.shopizer.com:8080/shop/product/vintage-courier-bag.html");
-
-    }
-
     public void selectOneCategoryMenu (int menuItemIndex, String title) {
         WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.elementToBeClickable(By.tagName("nav")));
+
 
         List<WebElement> menuItemsList = driver.findElements(By.tagName("nav"));
 
@@ -135,8 +113,9 @@ public class HomePage {
 
     public void goToCheckout() {
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(By.className("wc-proceed-to-checkout")));
+        Waits waits = new Waits(driver);
+        waits.wiatForElementToBeClickable(proceedToCheckoutButton);
+
 
         Actions action = new Actions(driver);
         action.pause(2000).moveToElement(proceedToCheckoutButton).pause(2000).click(proceedToCheckoutButton).build().perform();

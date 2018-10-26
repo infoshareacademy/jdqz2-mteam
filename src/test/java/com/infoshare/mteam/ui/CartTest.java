@@ -37,7 +37,7 @@ public class CartTest {
     }
 
     @Test
-    public void testAddOneItemToCart () {
+    public void singleProductAddToCart () {
 
         homePage.selectOneCategoryMenu(0,"Vintage handbags");
         homePage.addToCart();
@@ -48,45 +48,6 @@ public class CartTest {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//    @Test
-//    public void clickCartIconAndcheckIfEmpty() {
-//
-////        homePage.clickOnShoppingCart();
-////        homePage.getProductListSize();
-////        homePage.clickBagsTab();
-////        homePage.clickAddToCart(0);
-//        homePage.getProductListSize();
-////        homePage.clickAddToCart(0);
-////        homePage.clickOnShoppingCart();
-////        homePage.checkIfCheckoutButtonVisible();
-//    }
-//
-//    @Test
-//    public void clickAnItemAndAddToCart () throws Exception {
-//
-//        WebElement bagItem = driver.findElement(By.cssSelector("#featuredItemsContainer > div:nth-child(1) > div.thumbnail.product-img > a"));
-//
-//        homePage.scrollDown();
-//        homePage.clickOnParticularItem();
-//        homePage.addToCart();
-//    }
-//
-////    @Test
-////    public void singleProductAddToCart () {
-////
-////    }
-////
 ////    @Test
 ////    public void multipleProductsAddToCart () {
 ////
@@ -99,11 +60,6 @@ public class CartTest {
 ////
 ////    @Test
 ////    public void editQuantityValidationCart () {
-////
-////    }
-////
-////    @Test
-////    public void editQuantityCartBoundryValue () {
 ////
 ////    }
 ////
