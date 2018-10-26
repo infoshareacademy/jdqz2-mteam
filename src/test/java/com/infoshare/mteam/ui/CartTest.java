@@ -1,29 +1,18 @@
 package com.infoshare.mteam.ui;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import com.infoshare.mteam.pages.HomePage;
 import com.infoshare.mteam.utils.waits.Waits;
-
 import com.infoshare.mteam.utils.driver.WebDriverCreators;
 import com.infoshare.mteam.utils.driver.WebDriverProvider;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.Assert.*;
 
 
 public class CartTest {
 
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/";
+    private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
 
     private static WebDriver driver;
 
@@ -48,14 +37,13 @@ public class CartTest {
     }
 
     @Test
-    public void testAddToCart () {
+    public void testAddOneItemToCart () {
 
         homePage.selectOneCategoryMenu(0,"Vintage handbags");
         homePage.addToCart();
-        homePage.checkItemsInShoppingCart();
-        homePage.hoverOnTheShoppingCart();
-//        homePage.expectShoppingCartIsEmpty();
+        homePage.checkItemsInShoppingCart("(1)");
         homePage.goToShoppingCart();
+        homePage.goToCheckout();
     }
 
 
