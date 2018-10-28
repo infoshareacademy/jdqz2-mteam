@@ -2,6 +2,7 @@ package com.infoshare.mteam.pages;
 
 import com.infoshare.mteam.utils.waits.Waits;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,8 +11,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
@@ -25,27 +29,44 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[2]/div/div/a")
+    @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
     private WebElement addToCartButton;
 
-    @FindBy(xpath = "//*[@id=\"featuredItemsContainer\"]/div[1]/div[1]/a")
+    @FindBy(xpath = "//*[@id=\"productsContainer\"]/div[1]/div[2]/div/div/a")
     private WebElement bagItem;
 
+<<<<<<< HEAD
     @FindBy(xpath = "/html/body/header/div[2]/div/div/div[3]/div[2]/div[1]/a")
     private WebElement goToCartButton;
 
+=======
+    @FindBy(css = "#miniCartSummary > a > font > strong")
+    private WebElement numberOfItemsInCart;
+
+    @FindBy(css = "#miniCartDetails > h4")
+    private WebElement cartDetailsForEmptyCart;
+
+    @FindBy(tagName = "h4 > a")
+    private List <WebElement> cartDetailsForFullCart;
+
+    @FindBy(xpath = "//div[@class=\"cart-content\"]")
+    private List<WebElement> productsInCart;
+
+    @FindBy(css = "#miniCartDetails > li.checkout-bg > a")
+    private WebElement checkoutButton;
+
+    @FindBy(css = "body > div.cart-main-area.ptb-40 > div > div > div > div > div > div.row > div.col-lg-4.col-md-4.col-sm-5.col-xs-12 > div.wc-proceed-to-checkout > a")
+    private WebElement proceedToCheckoutButton;
+>>>>>>> ae3d137d22d315d7878f13275f0b054b410d9e46
 
     /////////////////////////////////////////////////////////////////////
 
 
-    @FindBy(css = "#miniCartSummary > a")
+    @FindBy(css = "#miniCartSummary > a > span")
     private WebElement shoppingCartIcon;
 
     @FindBy(id = "featuredItemsContainer")
     private List<WebElement> productList;
-
-    @FindBy(partialLinkText = "Checkout")
-    private WebElement checkoutButton;
 
     @FindBy(xpath = "//*[@id=\"main_h\"]/div/div/div/div")
     private List<WebElement> mainMenuTabs;
@@ -57,101 +78,70 @@ public class HomePage {
     private WebElement foo;
 
 
-    public void scrollDown () throws Exception {
+    public void selectOneCategoryMenu (int menuItemIndex, String title) {
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeClickable(By.tagName("nav")));
 
-        Actions a = new Actions(driver);
-        a.moveToElement(bagItem);
-    }
 
-    public void clickOnParticularItem () {
+        List<WebElement> menuItemsList = driver.findElements(By.tagName("nav"));
 
-        bagItem.click();
 
-        Waits wait = new Waits(driver);
-        wait.waitForElementToBeVisible(addToCartButton);
+        menuItemsList.get(menuItemIndex);
 
-        String URL = driver.getCurrentUrl();
-        Assert.assertEquals(URL, "http://demo.shopizer.com:8080/shop/product/vintage-courier-bag.html");
+        wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"main_h\"]/div/div/div/div/nav/ul/li[1]/a"))).click();
 
+        Assert.assertTrue(driver.getTitle().equals(title));
     }
 
     public void addToCart () {
 
-        addToCartButton.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+        WebDriverWait wait = new WebDriverWait(driver, 60);
 
-
-
-
-
-
-
+<<<<<<< HEAD
 
     public void clickOnShoppingCart () {
+=======
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[1]"))).click();
+>>>>>>> ae3d137d22d315d7878f13275f0b054b410d9e46
 
-        Waits wait = new Waits(driver);
-        wait.waitForElementToBeVisible(shoppingCartIcon);
-        shoppingCartIcon.click();
+        wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#input-10 > div > button"))).click();
     }
 
-    public void getProductListSize () {
+    public void goToShoppingCart () {
 
-        int productListSize = productList.size();
-        System.out.println("***************************************product list size: " + productListSize);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#miniCartSummary > a > span")));
+
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartIcon).pause(2000).moveToElement(checkoutButton).click(checkoutButton).build().perform();
+
+        String currentUrl = driver.getCurrentUrl();
+
+        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
+    }
+
+    public void goToCheckout() {
+
+        Waits waits = new Waits(driver);
+        waits.wiatForElementToBeClickable(proceedToCheckoutButton);
+
+
+        Actions action = new Actions(driver);
+        action.pause(2000).moveToElement(proceedToCheckoutButton).pause(2000).click(proceedToCheckoutButton).build().perform();
+
+        String currentUrl = driver.getCurrentUrl();
+
+        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html");
     }
 
 
+    public void checkItemsInShoppingCart (String numberOfItems) {
 
-//    public void clickBagsTab () {
-//        mainMenuTabs.get(3).click();
-//        Waits waits = new Waits(driver);
-//        waits.waitForElementToBeVisible(productsContainer);
-//        assertTrue("product is not visible", productsContainer.isDisplayed());
-//    }
-
-
-
-
-
-//    public void clickAddToCart (int productIndex) {
-//
-////        Waits waits = new Waits(driver);
-////        waits.waitForElementToBeVisible(productList.get(productIndex));
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        this.scrollDown();
-//        foo.click();
-////        productList.get(productIndex).click();
-//    }
-
-
-
-
-//    public void clickAddToCartOnAllProductsFromList (int productIndex) {
-//
-//        for (WebElement product : productList) {
-//            productList.get(productIndex).click();
-//        }
-//    }
-
-//    public void scrollDown () {
-//        JavascriptExecutor jse = (JavascriptExecutor) driver;
-//        jse.executeScript("window.scrollBy(0, 500);");
-//    }
-
-    public void checkIfCheckoutButtonVisible () {
-        Waits wait = new Waits(driver);
-        wait.waitForElementToBeVisible(checkoutButton);
-        boolean checkoutButtonDisplayed = checkoutButton.isDisplayed();
-        System.out.println("checkoutButtonDisplayed" + checkoutButtonDisplayed);
+        WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+        String numberOfItemsInCart = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#miniCartSummary > a > font > strong"))).getText();
+        Assert.assertEquals(numberOfItems, numberOfItemsInCart);
     }
 
 }
