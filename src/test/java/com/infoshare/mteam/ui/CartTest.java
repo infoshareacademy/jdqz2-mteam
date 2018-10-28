@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 public class CartTest {
 
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/";
+    private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
 
     private WebDriver driver;
 

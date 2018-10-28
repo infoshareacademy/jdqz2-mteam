@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegisterAccountTest {
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/";
+    private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl";
 
     private WebDriver driver;
     private HomePage homePage;

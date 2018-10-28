@@ -47,12 +47,13 @@ public class RegistrationForm {
 
 
     public void fillAllInputs() {
+        Integer randomNumber = generator.generateRandomNumbers(1).iterator().next() * generator.generateRandomNumbers(1).iterator().next();
         User[] user1 = generator.generateRandomUsers(1, generator.generateRandomNumbers(1));
         firstName.sendKeys(user1[0].getName().getFirstName());
         lastName.sendKeys(user1[0].getName().getLastName());
         country.sendKeys(user1[0].getAddress().getCountry());
         stateProvince.sendKeys(user1[0].getAddress().getStateProvince());
-        email.sendKeys(user1[0].getEmail());
+        email.sendKeys(randomNumber.toString() + user1[0].getEmail());
         password.sendKeys(user1[0].getPassword());
         repeatPassword.sendKeys(user1[0].getPassword());
     }
@@ -62,6 +63,8 @@ public class RegistrationForm {
     }
 
     public boolean isUserLoggedIn() {
+        Waits wait1 = new Waits(driver);
+        wait1.waitForElementToBeVisible(welcomeNewUser);
         return welcomeNewUser.isDisplayed();
     }
 }
