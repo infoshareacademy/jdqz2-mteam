@@ -3,13 +3,11 @@ package com.infoshare.mteam.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
     @FindBy(css = "#genericLogin-button")
     private WebElement buttonSignIn;
@@ -21,18 +19,13 @@ public class LoginPage {
     private WebElement fieldPassword;
 
     @FindBy(css = ".p-title")
-    List<WebElement>  myAccountMenu;
+    private List<WebElement>  myAccountMenu;
 
     @FindBy(css = "#loginError")
     private WebElement errorText;
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-
     public LoginPage(WebDriver driver){
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void loginToMyAccout(String userEmail, String password){
