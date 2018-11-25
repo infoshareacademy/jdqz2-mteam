@@ -13,7 +13,8 @@ public class SearchTest extends BaseTest {
     private SearchResultPage searchResultPage;
     private String existingBagName = "bag";
     private String nonExistingBagName = "olaboga";
-    private String expectedSearchResult = "item(s) found";
+    private Integer expectedSuggestionsSize = 2;
+    private Integer expectedResultSize = 8;
 
     @Before
     public void setup(){
@@ -22,36 +23,35 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchShouldDisplaySuggestionsIncludingBagName(){
+    public void searchDisplaysSuggestionsIncludingBagName(){
         homePage.searchBagsByName(existingBagName);
         assertThat(homePage.getDisplayedSuggestions())
-                .containsIgnoringCase(existingBagName);
+                .hasSize(expectedSuggestionsSize)
+                .allSatisfy(suggestionName -> assertThat(suggestionName.contains(existingBagName)));
     }
 
     @Test
-    public void searchDoesNotShowSuggestions(){
+    public void searchReturnsProperBagResults(){
+        homePage.searchBagsByName(existingBagName);
+        homePage.clickSearchButton();
+
+        assertThat(searchResultPage.returnBagNamesResultList())
+                .hasSize(expectedResultSize)
+                .allSatisfy(bagName -> assertThat(bagName).contains(existingBagName));
+    }
+
+    @Test
+    public void searchDoesNotShowSuggestionsForNonExistingBag(){
         homePage.searchBagsByName(nonExistingBagName);
         assertThat(homePage.getDisplayedSuggestions())
                 .isNull();
     }
 
     @Test
-    public void searchReturnsOneBagResult(){
-        homePage.searchBagsByName(existingBagName);
-        homePage.clickSearchButton();
-
-//        assertThat(searchResultPage.returnSearchResultText())
-//                .isEqualTo(String.format("%s "+ expectedSearchResult, 1));
-
-        assertThat(searchResultPage.returnResultBagNames())
-                .contains(existingBagName);
-    }
-
-    @Test
-    public void searchReturnsZeroResults(){
+    public void searchReturnsZeroResultsForNonExistingBag(){
         homePage.searchBagsByName(nonExistingBagName);
         homePage.clickSearchButton();
-        assertThat(searchResultPage.returnSearchResultText())
-                .isEqualTo(String.format("%s "+ expectedSearchResult, 0));
+        assertThat(searchResultPage.returnBagNamesResultList())
+                .isNull();
     }
 }

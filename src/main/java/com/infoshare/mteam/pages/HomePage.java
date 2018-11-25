@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomePage extends BasePage{
 
     @FindBy(id = "customerAccount")
@@ -20,8 +23,8 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//button[text()='Search']")
     private WebElement buttonSearch;
 
-    @FindBy(xpath = "//span[@class='tt-suggestions']")
-    private WebElement suggestions;
+    @FindBy(xpath = "//div[@class='tt-suggestion']")
+    private List<WebElement> suggestionsList;
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -37,12 +40,17 @@ public class HomePage extends BasePage{
         inputSearchField.sendKeys(searchText);
     }
 
-    public String getDisplayedSuggestions(){
+    public List<String> getDisplayedSuggestions(){
         try {
-            wait.until(ExpectedConditions.visibilityOf(suggestions));
-            return suggestions.getText();
+            wait.until(ExpectedConditions.visibilityOfAllElements(suggestionsList));
+            List<String> suggestionTextList = new ArrayList<>();
+            for (WebElement e: suggestionsList) {
+                suggestionTextList.add(e.getText());
+            }
+            return suggestionTextList;
         } catch (TimeoutException e) {
-            return null; }
+            return null;
+        }
     }
 
     public void clickSearchButton(){
