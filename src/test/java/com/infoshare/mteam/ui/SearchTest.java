@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
 
     private HomePage homePage;
     private SearchResultPage searchResultPage;
-    private String existingBagName = "retro";
+    private String existingBagName = "bag";
     private String nonExistingBagName = "olaboga";
     private String expectedSearchResult = "item(s) found";
 
@@ -40,8 +40,11 @@ public class SearchTest extends BaseTest {
         homePage.searchBagsByName(existingBagName);
         homePage.clickSearchButton();
 
-        assertThat(searchResultPage.returnSearchResultText())
-                .isEqualTo(String.format("%s "+ expectedSearchResult, 1));
+//        assertThat(searchResultPage.returnSearchResultText())
+//                .isEqualTo(String.format("%s "+ expectedSearchResult, 1));
+
+        assertThat(searchResultPage.returnResultBagNames())
+                .contains(existingBagName);
     }
 
     @Test
