@@ -1,5 +1,6 @@
 package com.infoshare.mteam.ui;
 
+import com.infoshare.mteam.pages.BasePage;
 import com.infoshare.mteam.pages.HomePage;
 import com.infoshare.mteam.pages.RegistrationForm;
 import com.infoshare.mteam.utils.driver.WebDriverCreators;
@@ -11,22 +12,16 @@ import org.openqa.selenium.WebDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RegisterAccountTest {
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
+public class RegisterAccountTest extends BaseTest {
 
-    private WebDriver driver;
     private HomePage homePage;
     private RegistrationForm registrationForm;
 
     @Before
     public void setUp() {
-
-        driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
-
         homePage = new HomePage(driver);
         registrationForm = new RegistrationForm(driver);
-        driver.get(PAGE_URL);
+
     }
 
     @Test
@@ -38,8 +33,7 @@ public class RegisterAccountTest {
     }
 
     @Test
-    public void tryToRegisterWithoutName() {
-        homePage.goToRegisterNewUserPage();
-        registrationForm.
+    public void negativeRegisterWithoutName() {
+
     }
 }

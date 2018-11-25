@@ -9,13 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class RegistrationForm {
-    private WebDriver driver;
+public class RegistrationForm extends BasePage {
     UserGenerator generator= new UserGenerator();
 
     public RegistrationForm(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(id = "firstName")
