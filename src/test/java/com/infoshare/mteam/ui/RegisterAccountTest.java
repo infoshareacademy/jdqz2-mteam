@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegisterAccountTest {
-    private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl";
+    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
 
     private WebDriver driver;
     private HomePage homePage;
@@ -35,5 +35,11 @@ public class RegisterAccountTest {
         registrationForm.fillAllInputs();
         registrationForm.clickRegisterButton();
         assertThat(registrationForm.isUserLoggedIn()).isEqualTo(true);
+    }
+
+    @Test
+    public void tryToRegisterWithoutName() {
+        homePage.goToRegisterNewUserPage();
+        registrationForm.
     }
 }

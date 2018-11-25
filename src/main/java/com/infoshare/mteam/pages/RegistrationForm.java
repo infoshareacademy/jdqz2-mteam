@@ -46,6 +46,8 @@ public class RegistrationForm {
     private WebElement welcomeNewUser;
 
 
+
+
     public void fillAllInputs() {
         Integer randomNumber = generator.generateRandomNumbers(1).iterator().next() * generator.generateRandomNumbers(1).iterator().next();
         User[] user1 = generator.generateRandomUsers(1, generator.generateRandomNumbers(1));
