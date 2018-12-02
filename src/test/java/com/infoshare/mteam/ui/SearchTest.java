@@ -44,7 +44,7 @@ public class SearchTest extends BaseTest {
     public void searchDoesNotShowSuggestionsForNonExistingBag(){
         homePage.searchBagsByName(nonExistingBagName);
         assertThat(homePage.getDisplayedSuggestions())
-                .isNull();
+                .isEmpty();
     }
 
     @Test
@@ -52,6 +52,6 @@ public class SearchTest extends BaseTest {
         homePage.searchBagsByName(nonExistingBagName);
         homePage.clickSearchButton();
         assertThat(searchResultPage.returnBagNamesResultList())
-                .isNull();
+                .isEmpty();
     }
 }

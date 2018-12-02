@@ -19,16 +19,16 @@ public class SearchResultPage extends BasePage {
     }
 
     public List<String> returnBagNamesResultList(){
+        List<String> itemNames = new ArrayList<>();
         try {
             wait.until(ExpectedConditions.visibilityOfAllElements(productsList));
-            List<String> itemNames = new ArrayList<>();
-
             for (WebElement e : productsList) {
                 itemNames.add(e.getAttribute("item-name"));
             }
+        } catch (TimeoutException e){
+
+        } finally {
             return itemNames;
-        }catch (TimeoutException e){
-            return null;
         }
     }
 }

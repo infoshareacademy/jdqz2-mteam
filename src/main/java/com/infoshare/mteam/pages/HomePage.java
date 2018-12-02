@@ -41,15 +41,16 @@ public class HomePage extends BasePage{
     }
 
     public List<String> getDisplayedSuggestions(){
+        List<String> suggestionTextList = new ArrayList<>();
         try {
             wait.until(ExpectedConditions.visibilityOfAllElements(suggestionsList));
-            List<String> suggestionTextList = new ArrayList<>();
             for (WebElement e: suggestionsList) {
                 suggestionTextList.add(e.getText());
             }
-            return suggestionTextList;
         } catch (TimeoutException e) {
-            return null;
+
+        } finally {
+            return suggestionTextList;
         }
     }
 
