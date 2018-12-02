@@ -67,4 +67,9 @@ public class RegistrationForm extends BasePage {
         wait1.waitForElementToBeVisible(welcomeNewUser);
         return welcomeNewUser.isDisplayed();
     }
+
+    public void fillInputWithoutName() {
+        fillAllInputs();
+        firstName.clear();
+    }
 }
