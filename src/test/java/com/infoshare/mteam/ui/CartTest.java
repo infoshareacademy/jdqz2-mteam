@@ -3,6 +3,7 @@ package com.infoshare.mteam.ui;
 import com.infoshare.mteam.generator.userData.User;
 import com.infoshare.mteam.generator.userGenerator.UserGenerator;
 import com.infoshare.mteam.pages.CheckoutPage;
+import com.infoshare.mteam.pages.HandbagsPage;
 import com.infoshare.mteam.pages.HomePage;
 import com.infoshare.mteam.utils.driver.WebDriverCreators;
 import com.infoshare.mteam.utils.driver.WebDriverProvider;
@@ -21,6 +22,8 @@ public class CartTest {
 
     private HomePage homePage;
 
+    private HandbagsPage handbagsPage;
+
     private CheckoutPage checkoutRegistration;
 
     private Waits waits;
@@ -33,6 +36,7 @@ public class CartTest {
 
         checkoutRegistration = new CheckoutPage(driver);
         homePage = new HomePage(driver);
+        handbagsPage = new HandbagsPage(driver);
 
         driver.get(PAGE_URL);
     }
@@ -51,7 +55,8 @@ public class CartTest {
         User[] user = generator.generateRandomUsers(1, generator.generateRandomNumbers(1));
 
         homePage.selectOneCategoryMenu(0,"Vintage handbags");
-        homePage.addToCart();
+//        homePage.addToCart();
+        handbagsPage.addToCart();
         homePage.checkItemsInShoppingCart("(1)");
         homePage.goToShoppingCart();
         homePage.goToCheckout();

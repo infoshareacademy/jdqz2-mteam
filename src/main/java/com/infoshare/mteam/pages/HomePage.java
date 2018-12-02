@@ -122,18 +122,18 @@ public class HomePage extends BasePage{
 
         Assert.assertTrue(driver.getTitle().equals(title));
     }
-
-    public void addToCart () {
-
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-
-//        wait.until(ExpectedConditions.invisibilityOf(By.cssSelector(".loadingoverlay")));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[1]"))).click();
-
-        wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#input-10 > div > button"))).click();
-    }
+//to zabieram do HabagsPage:
+//    public void addToCart () {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//
+////        wait.until(ExpectedConditions.invisibilityOf(By.cssSelector(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[1]"))).click();
+//
+//        wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#input-10 > div > button"))).click();
+//    }
 
     public void goToShoppingCart () {
 
