@@ -2,10 +2,7 @@ package com.infoshare.mteam.ui;
 
 import com.infoshare.mteam.generator.userData.User;
 import com.infoshare.mteam.generator.userGenerator.UserGenerator;
-import com.infoshare.mteam.pages.CheckoutPage;
-import com.infoshare.mteam.pages.HandbagsPage;
-import com.infoshare.mteam.pages.HomePage;
-import com.infoshare.mteam.pages.ShoppingCartPage;
+import com.infoshare.mteam.pages.*;
 import com.infoshare.mteam.utils.driver.WebDriverCreators;
 import com.infoshare.mteam.utils.driver.WebDriverProvider;
 import com.infoshare.mteam.utils.waits.Waits;
@@ -30,6 +27,8 @@ public class CartTest {
 
     private CheckoutPage checkoutRegistration;
 
+    private ConfirmationPage confirmationPage;
+
     private Waits waits;
 
     @Before
@@ -42,6 +41,7 @@ public class CartTest {
         homePage = new HomePage(driver);
         handbagsPage = new HandbagsPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
+        confirmationPage = new ConfirmationPage(driver);
 
         driver.get(PAGE_URL);
     }
@@ -68,10 +68,9 @@ public class CartTest {
         User user1 = generator.generateRandomUsers(1, generator.generateRandomNumbers(1))[0];
 
         checkoutRegistration.fillAllInputs(user1);
-
-//        registrationForm.fillAllInputs();
-//        registrationForm.clickRegisterButton();
-//        registrationForm.isUserLoggedIn();
+        checkoutRegistration.clickAgreeTermsAndConditionsCheckbox();
+        checkoutRegistration.submitOrder();
+        confirmationPage.assertOrderCompleted();
     }
 
 
