@@ -61,6 +61,7 @@ public class CheckoutPage {
 
     }
 
+
 //    public void clickRegisterButton() {
 //        registerButton.click();
 //    }

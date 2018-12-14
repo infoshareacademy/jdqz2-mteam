@@ -5,6 +5,7 @@ import com.infoshare.mteam.generator.userGenerator.UserGenerator;
 import com.infoshare.mteam.pages.CheckoutPage;
 import com.infoshare.mteam.pages.HandbagsPage;
 import com.infoshare.mteam.pages.HomePage;
+import com.infoshare.mteam.pages.ShoppingCartPage;
 import com.infoshare.mteam.utils.driver.WebDriverCreators;
 import com.infoshare.mteam.utils.driver.WebDriverProvider;
 import com.infoshare.mteam.utils.waits.Waits;
@@ -13,16 +14,19 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+//public class CartTest extends BaseTest{
 public class CartTest {
 
-    //    private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
+        private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
+//    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
 
     private static WebDriver driver;
 
     private HomePage homePage;
 
     private HandbagsPage handbagsPage;
+
+    private ShoppingCartPage shoppingCartPage;
 
     private CheckoutPage checkoutRegistration;
 
@@ -37,6 +41,7 @@ public class CartTest {
         checkoutRegistration = new CheckoutPage(driver);
         homePage = new HomePage(driver);
         handbagsPage = new HandbagsPage(driver);
+        shoppingCartPage = new ShoppingCartPage(driver);
 
         driver.get(PAGE_URL);
     }
@@ -55,11 +60,10 @@ public class CartTest {
         User[] user = generator.generateRandomUsers(1, generator.generateRandomNumbers(1));
 
         homePage.selectOneCategoryMenu(0,"Vintage handbags");
-//        homePage.addToCart();
         handbagsPage.addToCart();
         homePage.checkItemsInShoppingCart("(1)");
         homePage.goToShoppingCart();
-        homePage.goToCheckout();
+        shoppingCartPage.goToCheckout();
 
         User user1 = generator.generateRandomUsers(1, generator.generateRandomNumbers(1))[0];
 

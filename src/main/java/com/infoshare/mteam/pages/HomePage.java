@@ -76,8 +76,8 @@ public class HomePage extends BasePage{
     @FindBy(css = "#miniCartDetails > li.checkout-bg > a")
     private WebElement checkoutButton;
 
-    @FindBy(css = "body > div.cart-main-area.ptb-40 > div > div > div > div > div > div.row > div.col-lg-4.col-md-4.col-sm-5.col-xs-12 > div.wc-proceed-to-checkout > a")
-    private WebElement proceedToCheckoutButton;
+//    @FindBy(css = "body > div.cart-main-area.ptb-40 > div > div > div > div > div > div.row > div.col-lg-4.col-md-4.col-sm-5.col-xs-12 > div.wc-proceed-to-checkout > a")
+//    private WebElement proceedToCheckoutButton;
 
     /////////////////////////////////////////////////////////////////////
 
@@ -145,26 +145,27 @@ public class HomePage extends BasePage{
 
         String currentUrl = driver.getCurrentUrl();
 
-//        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
-        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
+        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
+//        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
     }
 
-    public CheckoutPage goToCheckout() {
-
-        Waits waits = new Waits(driver);
-        waits.wiatForElementToBeClickable(proceedToCheckoutButton);
-
-
-        Actions action = new Actions(driver);
-        action.pause(2000).moveToElement(proceedToCheckoutButton).pause(2000).click(proceedToCheckoutButton).build().perform();
-
-        String currentUrl = driver.getCurrentUrl();
-
+    //to przenoszę do ShoppingCartPage:
+//    public CheckoutPage goToCheckout() {
+//
+//        Waits waits = new Waits(driver);
+//        waits.wiatForElementToBeClickable(proceedToCheckoutButton);
+//
+//
+//        Actions action = new Actions(driver);
+//        action.pause(2000).moveToElement(proceedToCheckoutButton).pause(2000).click(proceedToCheckoutButton).build().perform();
+//
+//        String currentUrl = driver.getCurrentUrl();
+//
 //        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html");
-        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/order/checkout.html");
-
-        return new CheckoutPage(driver);
-    }
+////        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/order/checkout.html");
+//
+//        return new CheckoutPage(driver);
+//    }
 
 
     public void checkItemsInShoppingCart (String numberOfItems) {
