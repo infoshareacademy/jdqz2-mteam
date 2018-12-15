@@ -11,11 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-//public class CartTest extends BaseTest{
+
 public class CartTest {
 
-        private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
-//    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
+//        private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
+    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
 
     private static WebDriver driver;
 
@@ -72,37 +72,5 @@ public class CartTest {
         checkoutRegistration.submitOrder();
         confirmationPage.assertOrderCompleted();
     }
-
-
-
-////    @Test
-////    public void multipleProductsAddToCart () {
-////
-////    }
-////
-////    @Test
-////    public void clearCart () {
-////
-////    }
-////
-////    @Test
-////    public void editQuantityValidationCart () {
-////
-////    }
-////
-////    @Test
-////    public void singleProductRemoveFromCart () {
-////
-////    }
-////
-////    @Test
-////    public void multipleProductsRemoveFromCart () {
-////
-////    }
-////
-////    @Test
-////    public void continueShopping () {
-////
-////    }
 
 }

@@ -43,7 +43,7 @@ public class CheckoutPage {
     @FindBy(id = "customer.billing.country")
     private WebElement country;
 
-    @FindBy(id = "billingStateList")
+    @FindBy(id = "billingStateProvince")
     private WebElement stateProvince;
 
     @FindBy(id = "customer.emailAddress")
@@ -68,17 +68,11 @@ public class CheckoutPage {
         billingComapny.sendKeys(user.getCompany());
         billingAddress.sendKeys(user.getAddress().getStreet());
         city.sendKeys(user.getAddress().getCity());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         postalCode.sendKeys(user.getAddress().getPostalCode());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         country.sendKeys(user.getAddress().getCountry());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         stateProvince.sendKeys(user.getAddress().getStateProvince());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         email.sendKeys(user.getEmail());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         phoneNumber.sendKeys(user.getPhone());
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
 
     }
 
@@ -86,8 +80,6 @@ public class CheckoutPage {
 
         Waits waits = new Waits(driver);
 
-//        WebDriverWait wait = new WebDriverWait(driver, 60);
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         waits.wiatForElementToBeClickable(agreeTermsAndConditionsCheckbox);
         agreeTermsAndConditionsCheckbox.click();
     }
@@ -95,16 +87,5 @@ public class CheckoutPage {
     public void submitOrder() {
         submitOrderButton.click();
     }
-
-
-//    public void clickRegisterButton() {
-//        registerButton.click();
-//    }
-//
-//    public boolean isUserLoggedIn() {
-//        Waits wait1 = new Waits(driver);
-//        wait1.waitForElementToBeVisible(welcomeNewUser);
-//        return welcomeNewUser.isDisplayed();
-//    }
 
 }

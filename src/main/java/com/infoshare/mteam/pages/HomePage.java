@@ -1,28 +1,17 @@
 package com.infoshare.mteam.pages;
 
 import org.openqa.selenium.TimeoutException;
-import com.infoshare.mteam.generator.userData.User;
-import com.infoshare.mteam.generator.userGenerator.UserGenerator;
-import com.infoshare.mteam.utils.driver.WebDriverCreators;
-import com.infoshare.mteam.utils.driver.WebDriverProvider;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import com.infoshare.mteam.utils.waits.Waits;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
 
 public class HomePage extends BasePage{
 
@@ -61,12 +50,6 @@ public class HomePage extends BasePage{
 
     @FindBy(css = "#miniCartDetails > li.checkout-bg > a")
     private WebElement checkoutButton;
-
-//    @FindBy(css = "body > div.cart-main-area.ptb-40 > div > div > div > div > div > div.row > div.col-lg-4.col-md-4.col-sm-5.col-xs-12 > div.wc-proceed-to-checkout > a")
-//    private WebElement proceedToCheckoutButton;
-
-    /////////////////////////////////////////////////////////////////////
-
 
     @FindBy(css = "#miniCartSummary > a > span")
     private WebElement shoppingCartIcon;
@@ -131,18 +114,6 @@ public class HomePage extends BasePage{
 
         Assert.assertTrue(driver.getTitle().equals(title));
     }
-//to zabieram do HabagsPage:
-//    public void addToCart () {
-//
-//        WebDriverWait wait = new WebDriverWait(driver, 60);
-//
-////        wait.until(ExpectedConditions.invisibilityOf(By.cssSelector(".loadingoverlay")));
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[1]"))).click();
-//
-//        wait = new WebDriverWait(driver, 60);
-//        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#input-10 > div > button"))).click();
-//    }
 
     public void goToShoppingCart () {
 
@@ -154,28 +125,9 @@ public class HomePage extends BasePage{
 
         String currentUrl = driver.getCurrentUrl();
 
-        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
-//        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
+//        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
+        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
     }
-
-    //to przenoszę do ShoppingCartPage:
-//    public CheckoutPage goToCheckout() {
-//
-//        Waits waits = new Waits(driver);
-//        waits.wiatForElementToBeClickable(proceedToCheckoutButton);
-//
-//
-//        Actions action = new Actions(driver);
-//        action.pause(2000).moveToElement(proceedToCheckoutButton).pause(2000).click(proceedToCheckoutButton).build().perform();
-//
-//        String currentUrl = driver.getCurrentUrl();
-//
-//        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html");
-////        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/order/checkout.html");
-//
-//        return new CheckoutPage(driver);
-//    }
-
 
     public void checkItemsInShoppingCart (String numberOfItems) {
 
