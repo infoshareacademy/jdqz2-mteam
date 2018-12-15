@@ -43,7 +43,7 @@ public class CheckoutPage {
     @FindBy(id = "customer.billing.country")
     private WebElement country;
 
-    @FindBy(id = "billingStateProvince")
+    @FindBy(id = "billingStateList")
     private WebElement stateProvince;
 
     @FindBy(id = "customer.emailAddress")
@@ -68,24 +68,27 @@ public class CheckoutPage {
         billingComapny.sendKeys(user.getCompany());
         billingAddress.sendKeys(user.getAddress().getStreet());
         city.sendKeys(user.getAddress().getCity());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         postalCode.sendKeys(user.getAddress().getPostalCode());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         country.sendKeys(user.getAddress().getCountry());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         stateProvince.sendKeys(user.getAddress().getStateProvince());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         email.sendKeys(user.getEmail());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
         phoneNumber.sendKeys(user.getPhone());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
 
     }
 
     public void clickAgreeTermsAndConditionsCheckbox () {
 
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+        Waits waits = new Waits(driver);
+
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+        waits.wiatForElementToBeClickable(agreeTermsAndConditionsCheckbox);
         agreeTermsAndConditionsCheckbox.click();
     }
 
