@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class LoginTests extends BaseTest{
+public class LoginTest extends BaseTest{
 
     private HomePage homePage;
     private LoginPage loginPage;
