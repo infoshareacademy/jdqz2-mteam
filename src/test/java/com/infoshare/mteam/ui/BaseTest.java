@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class BaseTest {
     protected WebDriver driver;
     private static final String baseUrl = "http://demo.shopizer.com:8080/shop";
+//    private static final String baseUrl = "http://http://mteam.jdqz2.is-academy.pl/shop";
 
     @Before
     public void setUp() {

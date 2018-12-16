@@ -43,7 +43,8 @@ public class CheckoutPage {
     @FindBy(id = "customer.billing.country")
     private WebElement country;
 
-    @FindBy(id = "billingStateProvince")
+//    @FindBy(id = "billingStateProvince")
+    @FindBy(id = "billingStateList")
     private WebElement stateProvince;
 
     @FindBy(id = "customer.emailAddress")

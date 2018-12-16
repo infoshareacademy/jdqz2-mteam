@@ -125,8 +125,8 @@ public class HomePage extends BasePage{
 
         String currentUrl = driver.getCurrentUrl();
 
-//        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
-        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
+        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/cart/shoppingCart.html");
+//        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/cart/shoppingCart.html");
     }
 
     public void checkItemsInShoppingCart (String numberOfItems) {

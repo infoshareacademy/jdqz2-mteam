@@ -28,8 +28,8 @@ public class ShoppingCartPage extends BasePage {
 
         String currentUrl = driver.getCurrentUrl();
 
-//        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html");
-        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/order/checkout.html");
+        Assert.assertEquals(currentUrl, "http://mteam.jdqz2.is-academy.pl/shop/order/checkout.html");
+//        Assert.assertEquals(currentUrl, "http://demo.shopizer.com:8080/shop/order/checkout.html");
 
         return new CheckoutPage(driver);
     }

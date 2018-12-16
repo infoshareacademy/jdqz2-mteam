@@ -14,8 +14,8 @@ import org.openqa.selenium.WebDriver;
 
 public class CartTest {
 
-//        private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
-    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
+        private static final String PAGE_URL = "http://mteam.jdqz2.is-academy.pl/";
+//    private static final String PAGE_URL = "http://demo.shopizer.com:8080/shop";
 
     private static WebDriver driver;
 

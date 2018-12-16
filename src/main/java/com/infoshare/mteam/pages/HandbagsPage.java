@@ -15,7 +15,7 @@ public class HandbagsPage extends BasePage{
 
         WebDriverWait wait = new WebDriverWait(driver, 60);
 
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(".loadingoverlay")));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"productsContainer\"]/div[1]/div[1]"))).click();
 
         wait = new WebDriverWait(driver, 60);
