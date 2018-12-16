@@ -43,8 +43,8 @@ public class CheckoutPage {
     @FindBy(id = "customer.billing.country")
     private WebElement country;
 
-//    @FindBy(id = "billingStateProvince")
-    @FindBy(id = "billingStateList")
+    @FindBy(id = "billingStateProvince")
+//    @FindBy(id = "billingStateList")
     private WebElement stateProvince;
 
     @FindBy(id = "customer.emailAddress")
@@ -81,11 +81,17 @@ public class CheckoutPage {
 
         Waits waits = new Waits(driver);
 
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
         waits.wiatForElementToBeClickable(agreeTermsAndConditionsCheckbox);
         agreeTermsAndConditionsCheckbox.click();
     }
 
     public void submitOrder() {
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
         submitOrderButton.click();
     }
 
