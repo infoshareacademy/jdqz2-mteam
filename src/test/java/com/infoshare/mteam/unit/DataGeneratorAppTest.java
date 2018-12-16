@@ -50,7 +50,6 @@ public class DataGeneratorAppTest extends UserGenerator {
         assertEquals("La Florida", users[0].getAddress().getCity());
         assertEquals("94819-881", users[0].getAddress().getPostalCode());
         assertEquals("Ap #610-1759 Faucibus Street", users[0].getAddress().getStreet());
-        assertEquals( "nec.mollis@sit.edu", users[0].getEmail());
         assertEquals( "YUG77EXC9ZE", users[0].getPassword());
         assertEquals("106-558-007", users[0].getPhone());
     }

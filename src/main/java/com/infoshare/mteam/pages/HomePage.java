@@ -1,5 +1,6 @@
 package com.infoshare.mteam.pages;
 
+import com.infoshare.mteam.utils.waits.Waits;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class HomePage extends BasePage{
+
+
+    @FindBy(xpath = "//li[@class='click_menu']")
+    public WebElement myAccount;
+
+    @FindBy(id = "registerLink")
+    private WebElement registerLink;
 
     @FindBy(id = "customerAccount")
     private WebElement menuMyAccount;
@@ -68,6 +76,15 @@ public class HomePage extends BasePage{
 
     public HomePage(WebDriver driver){
         super(driver);
+    }
+
+
+    public void goToRegisterNewUserPage() {
+
+        Waits wait = new Waits(driver);
+        wait.waitForElementToBeVisible(myAccount);
+        myAccount.click();
+        registerLink.click();
     }
 
     public void clickSignIn(){

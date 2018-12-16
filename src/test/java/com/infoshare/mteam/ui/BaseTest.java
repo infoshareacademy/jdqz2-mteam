@@ -12,7 +12,7 @@ public class BaseTest {
 //    private static final String baseUrl = "http://http://mteam.jdqz2.is-academy.pl/shop";
 
     @Before
-    public void setUp() {
+    public void setUpDriver() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.get(baseUrl);
         driver.manage().window().maximize();
